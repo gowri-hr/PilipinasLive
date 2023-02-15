@@ -4,7 +4,7 @@ import SubLogin from './src/screens/SubLoginScreen';
 
 const App = () => {
   return (
-    <Login />
+    <SubLogin />
   );
 };
 

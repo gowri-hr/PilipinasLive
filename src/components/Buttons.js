@@ -1,8 +1,19 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 
 export const Button = (props) => {
-  return <TouchableOpacity style={styles.button}><Text style={styles.buttonTitle}>{props.title}</Text></TouchableOpacity>;
+  return (
+    <TouchableWithoutFeedback onPress={props.onPress} disabled={props.disabled}>
+      <View style={[styles.button, {...props.style}]}>
+        <Text style={styles.buttonTitle}>{props.title}</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -13,13 +24,14 @@ const styles = StyleSheet.create({
     borderWidth: 1.24725,
     borderColor: '#7D7D7D',
     borderRadius: 3.74175,
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   buttonTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 'bold',
     textTransform: 'uppercase',
-    color: '#FFFFFF'
-  }
+    color: '#FFFFFF',
+    fontFamily: 'Roboto-Regular',
+  },
 });
