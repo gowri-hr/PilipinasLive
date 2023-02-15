@@ -3,43 +3,87 @@ import {
   Image,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   useWindowDimensions,
   View,
 } from 'react-native';
-import { Button } from '../components/Buttons';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {Button} from '../components/Buttons';
 import {Input} from '../components/Inputs';
+import {Formik, Field} from 'formik';
+import * as yup from 'yup';
+
+const registerValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      'Email must have a number, special character, small and capital alphabets.',
+    )
+    .required('Email is required'),
+});
 
 const Login = () => {
   const {width, height} = useWindowDimensions();
   console.log(width);
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <KeyboardAwareScrollView>
+        <View style={styles.header}>
+          <Image
+            source={require('../assets/images/AppLogo.png')}
+            style={styles.logo}
+          />
+        </View>
         <Image
-          source={require('../assets/images/AppLogo.png')}
-          style={styles.logo}
+          source={require('../assets/images/BackgroundImage.png')}
+          style={styles.backgroundImage}
         />
-      </View>
-      <Image
-        source={require('../assets/images/BackgroundImage.png')}
-        style={styles.backgroundImage}
-      />
-      <View style={styles.welcomeView}>
-        <Text style={styles.nameText}>MABUHAY!</Text>
-        <Text style={styles.welcomeText}>
-          Welcome to the home of Filipino Live Sports
-        </Text>
-      </View>
-      <View style={styles.inputView}>
-        <Input placeholder='Email'/>
-      </View>
-      <TouchableOpacity style={styles.forgetTextView}>
-        <Text style={styles.forgetText}>Forgot your password?</Text>
-      </TouchableOpacity>
-      <View style={styles.buttonView}>
-        <Button title='CONTINUE' />
-      </View>
+        <View style={styles.welcomeView}>
+          <Text style={styles.nameText}>MABUHAY!</Text>
+          <Text style={styles.welcomeText}>
+            Welcome to the home of Filipino Live Sports
+          </Text>
+        </View>
+        <Formik
+          validationSchema={registerValidationSchema}
+          initialValues={{
+            email: '',
+          }}
+          onSubmit={() => {
+            console.log('submit');
+          }}>
+          {({handleSubmit, values}) => (
+            <>
+              <View style={styles.inputView}>
+                <Field
+                  component={Input}
+                  name="email"
+                  placeholder="Email"
+                  value={values.email}
+                  keyboardType="email-address"
+                  secureTextEntry={false}
+                />
+              </View>
+              <TouchableWithoutFeedback
+                onPress={() => {
+                  console.log('forgot');
+                }}>
+                <View style={styles.forgetTextView}>
+                  <Text style={styles.forgetText}>Forgot your password?</Text>
+                </View>
+              </TouchableWithoutFeedback>
+              <View style={styles.buttonView}>
+                <Field
+                  component={Button}
+                  title="CONTINUE"
+                  onPress={handleSubmit}
+                />
+              </View>
+            </>
+          )}
+        </Formik>
+      </KeyboardAwareScrollView>
     </View>
   );
 };
@@ -49,7 +93,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: '#111111',
-    position: 'relative',
+    flex: 1,
   },
   header: {
     height: 65,
@@ -83,8 +127,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textTransform: 'uppercase',
     color: '#FFFFFF',
-    // borderColor: 'white',
-    // borderWidth: 1,
+    fontFamily: 'Roboto-Regular',
   },
   welcomeText: {
     height: 19,
@@ -94,9 +137,11 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     alignItems: 'center',
     color: '#FFFFFF',
+    fontFamily: 'Roboto-Regular',
   },
   inputView: {
     marginTop: 32,
+    left: 16,
   },
   forgetTextView: {
     marginTop: 16,
@@ -110,15 +155,14 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     textDecorationStyle: 'solid',
     textDecorationColor: '#FFFFFF',
+    fontFamily: 'Roboto-Regular',
   },
   buttonView: {
-    position: 'absolute',
-    bottom: 42,
+    bottom: 15,
+    marginTop: 170,
     left: 16,
     right: 16,
-    // borderColor: 'white',
-    // borderWidth: 1,
-  }
+  },
 });
 
 export default Login;

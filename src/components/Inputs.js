@@ -1,18 +1,34 @@
 import React from 'react';
-import {
-  Image,
-  StyleSheet,
-  TextInput,
-} from 'react-native';
+import {Image, StyleSheet, Text, TextInput} from 'react-native';
 
-export const Input = (props) => {
+export const Input = props => {
+  const {
+    field: {name, onBlur, onChange, value},
+    form: {errors, touched, setFieldTouched},
+    ...inputProps
+  } = props;
+
+  const hasError = errors[name] && touched[name];
+
   return (
-    <TextInput
-      placeholder={props.placeholder}
-      placeholderTextColor={'rgba(51, 51, 51, 0.4)'}
-      style={styles.inputContainer}
-      //   onChangeText={value => setTo(value)}
-    />
+    <>
+      <TextInput
+        placeholder={props.placeholder}
+        placeholderTextColor={'rgba(51, 51, 51, 0.4)'}
+        style={[styles.inputContainer, hasError && styles.errorInput]}
+        keyboardType={props.keyboardType}
+        value={value}
+        secureTextEntry={props.secureTextEntry}
+        onChangeText={text => onChange(name)(text)}
+        onBlur={() => {
+          setFieldTouched(name);
+          onBlur(name);
+        }}
+        {...inputProps}
+        //   onChangeText={value => setTo(value)}
+      />
+      {hasError && <Text style={styles.errorText}>{errors[name]}</Text>}
+    </>
   );
 };
 
@@ -28,9 +44,20 @@ const styles = StyleSheet.create({
     paddingBottom: 12,
     paddingLeft: 16,
     paddingRight: 16,
-    left: 16,
-    right: 16,
     fontWeight: '400',
     fontSize: 14,
+    fontFamily: 'Roboto-Regular',
+    color: '#111111'
+  },
+  errorText: {
+    width: 358,
+    fontSize: 12,
+    color: '#FFFFFF',
+    alignSelf: 'center',
+    marginTop: 3,
+    marginBottom: 3,
+    marginLeft: 16,
+    marginRight: 16,
+    textAlign: 'center',
   },
 });
