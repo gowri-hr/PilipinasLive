@@ -1,10 +1,9 @@
 import React from 'react';
-import Login from './src/screens/LoginScreen';
-import SubLogin from './src/screens/SubLoginScreen';
+import LoginUserStack from './src/utils/LoginUserNavigation';
 
 const App = () => {
   return (
-    <SubLogin />
+    <LoginUserStack />
   );
 };
 

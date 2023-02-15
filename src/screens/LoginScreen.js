@@ -23,7 +23,7 @@ const registerValidationSchema = yup.object().shape({
     .required('Email is required'),
 });
 
-const Login = () => {
+const Login = ({navigation}) => {
   const {width, height} = useWindowDimensions();
   console.log(width);
   return (
@@ -52,6 +52,7 @@ const Login = () => {
           }}
           onSubmit={() => {
             console.log('submit');
+            navigation.navigate('SubLogin')
           }}>
           {({handleSubmit, values}) => (
             <>

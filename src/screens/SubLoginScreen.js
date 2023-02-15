@@ -31,19 +31,25 @@ const registerValidationSchema = yup.object().shape({
     .required('Enter password'),
 });
 
-const SubLogin = () => {
+const SubLogin = ({navigation}) => {
   const {width, height} = useWindowDimensions();
   console.log(height);
+
+  const OnPressBack = () => {
+    navigation.navigate('Login');
+  };
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
         <View style={styles.header}>
-          <View style={styles.backView}>
-            <Image
-              source={require('../assets/images/Back.png')}
-              style={styles.back}
-            />
-          </View>
+          <TouchableWithoutFeedback onPress={OnPressBack}>
+            <View style={styles.backView}>
+              <Image
+                source={require('../assets/images/Back.png')}
+                style={styles.back}
+              />
+            </View>
+          </TouchableWithoutFeedback>
           <Image
             source={require('../assets/images/AppLogo.png')}
             style={styles.logo}
@@ -108,9 +114,9 @@ const SubLogin = () => {
                   component={Button}
                   title="CONTINUE"
                   onPress={handleSubmit}
-                  disabled={!(isValid && dirty)}        
+                  disabled={!(isValid && dirty)}
                   style={
-                    (isValid && dirty) 
+                    isValid && dirty
                       ? {
                           backgroundColor: 'red',
                           borderColor: '#EC2027',
