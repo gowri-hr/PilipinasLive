@@ -8,7 +8,7 @@ const Stack = createStackNavigator();
 const LoginUserStack = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LoginScreen">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           options={{
             headerShown: false,

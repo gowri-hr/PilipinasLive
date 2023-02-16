@@ -53,11 +53,8 @@ const styles = StyleSheet.create({
     width: 358,
     fontSize: 12,
     color: '#FFFFFF',
-    alignSelf: 'center',
     marginTop: 3,
     marginBottom: 3,
-    marginLeft: 16,
-    marginRight: 16,
     textAlign: 'center',
   },
 });

@@ -8,9 +8,10 @@ import {
   View,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Button} from '../components/Buttons';
+import { Buttons } from '../components/Buttons';
 import {Input} from '../components/Inputs';
 import {Formik, Field} from 'formik';
+import BackgroundImage from '../assets/images/BackgroundImage.svg';
 import * as yup from 'yup';
 
 const registerValidationSchema = yup.object().shape({
@@ -24,8 +25,6 @@ const registerValidationSchema = yup.object().shape({
 });
 
 const Login = ({navigation}) => {
-  const {width, height} = useWindowDimensions();
-  console.log(width);
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -35,10 +34,7 @@ const Login = ({navigation}) => {
             style={styles.logo}
           />
         </View>
-        <Image
-          source={require('../assets/images/BackgroundImage.png')}
-          style={styles.backgroundImage}
-        />
+        <BackgroundImage />
         <View style={styles.welcomeView}>
           <Text style={styles.nameText}>MABUHAY!</Text>
           <Text style={styles.welcomeText}>
@@ -50,11 +46,12 @@ const Login = ({navigation}) => {
           initialValues={{
             email: '',
           }}
-          onSubmit={() => {
-            console.log('submit');
-            navigation.navigate('SubLogin')
-          }}>
-          {({handleSubmit, values}) => (
+          // onSubmit={() => {
+          //   console.log('submit');
+          //   navigation.navigate('SubLogin')
+          // }}
+          >
+          {({handleSubmit, values, errors, touched, setFieldTouched}) => (
             <>
               <View style={styles.inputView}>
                 <Field
@@ -76,9 +73,11 @@ const Login = ({navigation}) => {
               </TouchableWithoutFeedback>
               <View style={styles.buttonView}>
                 <Field
-                  component={Button}
+                  component={Buttons}
                   title="CONTINUE"
-                  onPress={handleSubmit}
+                  onPress={() => {
+                    console.log('errrrr',setFieldTouched)
+                  }}
                 />
               </View>
             </>
@@ -150,7 +149,7 @@ const styles = StyleSheet.create({
   forgetText: {
     color: '#FFFFFF',
     left: 16,
-    fontWeight: 400,
+    fontWeight: '400',
     fontSize: 13,
     lineHeight: 18,
     textDecorationLine: 'underline',

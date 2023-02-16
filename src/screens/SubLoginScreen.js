@@ -5,14 +5,17 @@ import {
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
-  useWindowDimensions,
   View,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {Button} from '../components/Buttons';
+import {Buttons} from '../components/Buttons';
 import {Input} from '../components/Inputs';
 import {Formik, Field} from 'formik';
 import * as yup from 'yup';
+import Back from "../assets/images/BackIcon.svg";
+import BackgroundImage from '../assets/images/BackgroundImage.svg';
+import EyeClose from '../assets/images/eyeClose.svg';
+
 
 const registerValidationSchema = yup.object().shape({
   email: yup
@@ -32,8 +35,6 @@ const registerValidationSchema = yup.object().shape({
 });
 
 const SubLogin = ({navigation}) => {
-  const {width, height} = useWindowDimensions();
-  console.log(height);
 
   const OnPressBack = () => {
     navigation.navigate('Login');
@@ -44,10 +45,7 @@ const SubLogin = ({navigation}) => {
         <View style={styles.header}>
           <TouchableWithoutFeedback onPress={OnPressBack}>
             <View style={styles.backView}>
-              <Image
-                source={require('../assets/images/Back.png')}
-                style={styles.back}
-              />
+              <Back />
             </View>
           </TouchableWithoutFeedback>
           <Image
@@ -55,10 +53,7 @@ const SubLogin = ({navigation}) => {
             style={styles.logo}
           />
         </View>
-        <Image
-          source={require('../assets/images/BackgroundImage.png')}
-          style={styles.backgroundImage}
-        />
+        <BackgroundImage />
         <View style={styles.welcomeView}>
           <Text style={styles.nameText}>MABUHAY!</Text>
           <Text style={styles.welcomeText}>
@@ -94,10 +89,7 @@ const SubLogin = ({navigation}) => {
                     secureTextEntry={true}
                   />
                   <TouchableOpacity style={styles.EyeView}>
-                    <Image
-                      source={require('../assets/images/EyeClose.png')}
-                      style={styles.eye}
-                    />
+                    <EyeClose />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -111,7 +103,7 @@ const SubLogin = ({navigation}) => {
               </TouchableWithoutFeedback>
               <View style={styles.buttonView}>
                 <Field
-                  component={Button}
+                  component={Buttons}
                   title="CONTINUE"
                   onPress={handleSubmit}
                   disabled={!(isValid && dirty)}
