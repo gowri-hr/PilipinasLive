@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import {
   Image,
   StyleSheet,
@@ -8,14 +8,14 @@ import {
   View,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {SubLoginScreenProps} from '../utils/LoginUserNavigation';
 import {Buttons} from '../components/Buttons';
 import {Input} from '../components/Inputs';
 import {Formik, Field} from 'formik';
 import * as yup from 'yup';
-import Back from "../assets/images/BackIcon.svg";
+import Back from '../assets/images/BackIcon.svg';
 import BackgroundImage from '../assets/images/BackgroundImage.svg';
 import EyeClose from '../assets/images/eyeClose.svg';
-
 
 const registerValidationSchema = yup.object().shape({
   email: yup
@@ -34,10 +34,9 @@ const registerValidationSchema = yup.object().shape({
     .required('Enter password'),
 });
 
-const SubLogin = ({navigation}) => {
-
+const SubLogin: FC<SubLoginScreenProps> = props => {
   const OnPressBack = () => {
-    navigation.navigate('Login');
+    props.navigation.push('Login');
   };
   return (
     <View style={styles.container}>
@@ -64,6 +63,7 @@ const SubLogin = ({navigation}) => {
           validationSchema={registerValidationSchema}
           initialValues={{
             email: '',
+            password: '',
           }}
           onSubmit={() => {
             console.log('submit');

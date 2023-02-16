@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {
   Image,
   StyleSheet,
@@ -8,6 +8,7 @@ import {
   View,
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { LoginScreenProps } from '../utils/LoginUserNavigation';
 import { Buttons } from '../components/Buttons';
 import {Input} from '../components/Inputs';
 import {Formik, Field} from 'formik';
@@ -24,7 +25,7 @@ const registerValidationSchema = yup.object().shape({
     .required('Email is required'),
 });
 
-const Login = ({navigation}) => {
+const Login: FC<LoginScreenProps> = (props) => {
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView>
@@ -46,21 +47,21 @@ const Login = ({navigation}) => {
           initialValues={{
             email: '',
           }}
-          // onSubmit={() => {
-          //   console.log('submit');
-          //   navigation.navigate('SubLogin')
-          // }}
+          onSubmit={() => {
+            console.log('submit');
+            props.navigation.push("SubLogin")
+          }}
           >
-          {({handleSubmit, values, errors, touched, setFieldTouched}) => (
+          {({handleSubmit, values}) => (
             <>
               <View style={styles.inputView}>
                 <Field
                   component={Input}
                   name="email"
-                  placeholder="Email"
+                  inputPlaceholder="Email"
                   value={values.email}
-                  keyboardType="email-address"
-                  secureTextEntry={false}
+                  keyboardValue="email-address"
+                  secureText={false}
                 />
               </View>
               <TouchableWithoutFeedback
@@ -75,9 +76,7 @@ const Login = ({navigation}) => {
                 <Field
                   component={Buttons}
                   title="CONTINUE"
-                  onPress={() => {
-                    console.log('errrrr',setFieldTouched)
-                  }}
+                  onPress={handleSubmit}
                 />
               </View>
             </>
