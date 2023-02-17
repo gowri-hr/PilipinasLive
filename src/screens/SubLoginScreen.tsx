@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import {SubLoginScreenProps} from '../utils/LoginUserNavigation';
-import {Buttons} from '../components/atoms/Buttons';
+import {Buttons} from '../components/atoms/Buttons/Buttons';
 import {Input} from '../components/atoms/Inputs';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../assets/images/BackgroundImage.svg';

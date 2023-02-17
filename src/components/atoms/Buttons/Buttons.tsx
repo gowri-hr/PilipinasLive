@@ -22,7 +22,6 @@ export const Buttons: FC<Button> = (props) => {
   );
 };
 
-
 const styles = StyleSheet.create({
   button: {
     height: 41,

@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
 import {LoginScreenProps} from '../utils/LoginUserNavigation';
-import {Buttons} from '../components/atoms/Buttons';
+import {Buttons} from '../components/atoms/Buttons/Buttons';
 import {Input} from '../components/atoms/Inputs';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../assets/images/BackgroundImage.svg';
@@ -11,7 +11,7 @@ import {Headers} from '../components/molecules/Header';
 import {WelcomeText} from '../components/molecules/WelcomView';
 
 const Login: FC<LoginScreenProps> = props => {
-  
+
   const handleContinue = () => {
     props.navigation.push('SubLogin');
   };
