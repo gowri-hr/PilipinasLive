@@ -9,7 +9,7 @@ import {
 interface Button {
   title: string;
   onPress: () => void;
-  style: {}
+  style: {};
   disabled: boolean;
 }
 export const Buttons: FC<Button> = (props) => {

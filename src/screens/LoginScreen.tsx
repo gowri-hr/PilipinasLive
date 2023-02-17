@@ -1,58 +1,33 @@
-import React, { FC } from 'react';
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableWithoutFeedback,
-  useWindowDimensions,
-  View,
-} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import { LoginScreenProps } from '../utils/LoginUserNavigation';
-import { Buttons } from '../components/Buttons';
-import {Input} from '../components/Inputs';
+import React, {FC} from 'react';
+import {StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native';
+import {LoginScreenProps} from '../utils/LoginUserNavigation';
+import {Buttons} from '../components/atoms/Buttons';
+import {Input} from '../components/atoms/Inputs';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../assets/images/BackgroundImage.svg';
-import * as yup from 'yup';
+import {ValidationSchema} from '../components/Validation';
+import {Container, MyAwareScrollView} from '../styles/LoginRegisterStyles';
+import {Headers} from '../components/molecules/Header';
+import {WelcomeText} from '../components/molecules/WelcomView';
 
-const registerValidationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Email must have a number, special character, small and capital alphabets.',
-    )
-    .required('Email is required'),
-});
-
-const Login: FC<LoginScreenProps> = (props) => {
+const Login: FC<LoginScreenProps> = props => {
+  
+  const handleContinue = () => {
+    props.navigation.push('SubLogin');
+  };
   return (
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>
-        <View style={styles.header}>
-          <Image
-            source={require('../assets/images/AppLogo.png')}
-            style={styles.logo}
-          />
-        </View>
+    <Container>
+      <MyAwareScrollView>
+        <Headers justify={true} backBtn={false} onPress={null} />
         <BackgroundImage />
-        <View style={styles.welcomeView}>
-          <Text style={styles.nameText}>MABUHAY!</Text>
-          <Text style={styles.welcomeText}>
-            Welcome to the home of Filipino Live Sports
-          </Text>
-        </View>
+        <WelcomeText justify={true} backBtn={false} onPress={null} />
         <Formik
-          validationSchema={registerValidationSchema}
+          validationSchema={ValidationSchema}
           initialValues={{
             email: '',
           }}
-          onSubmit={() => {
-            console.log('submit');
-            props.navigation.push("SubLogin")
-          }}
-          >
-          {({handleSubmit, values}) => (
+          onSubmit={handleContinue}>
+          {({handleSubmit, values, isValid, dirty}) => (
             <>
               <View style={styles.inputView}>
                 <Field
@@ -76,67 +51,23 @@ const Login: FC<LoginScreenProps> = (props) => {
                 <Field
                   component={Buttons}
                   title="CONTINUE"
+                  disabled={!(isValid && dirty)}
                   onPress={handleSubmit}
                 />
               </View>
             </>
           )}
         </Formik>
-      </KeyboardAwareScrollView>
-    </View>
+      </MyAwareScrollView>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#111111',
-    flex: 1,
-  },
-  header: {
-    height: 65,
-    width: '100%',
-    justifyContent: 'center',
-    backgroundColor: '#030406',
-  },
-  logo: {
-    resizeMode: 'cover',
-    height: 40,
-    width: 180,
-    marginLeft: 20.13,
-  },
   backgroundImage: {
     height: 240,
     width: '100%',
     borderColor: 'white',
-    // resizeMode: 'cover'
-  },
-  welcomeView: {
-    width: 313,
-    height: 55,
-    left: 16,
-    marginTop: 34,
-  },
-  nameText: {
-    height: 28,
-    fontWeight: '700',
-    fontSize: 24,
-    lineHeight: 28,
-    alignItems: 'center',
-    textTransform: 'uppercase',
-    color: '#FFFFFF',
-    fontFamily: 'Roboto-Regular',
-  },
-  welcomeText: {
-    height: 19,
-    top: 8,
-    fontWeight: '400',
-    fontSize: 16,
-    lineHeight: 19,
-    alignItems: 'center',
-    color: '#FFFFFF',
-    fontFamily: 'Roboto-Regular',
   },
   inputView: {
     marginTop: 32,

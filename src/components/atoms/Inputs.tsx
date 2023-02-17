@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import {Image, StyleSheet, Text, TextInput} from 'react-native';
+import {StyleSheet, Text, TextInput} from 'react-native';
 
 interface UserInput {
   inputPlaceholder: string;

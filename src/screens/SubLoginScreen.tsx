@@ -1,92 +1,58 @@
 import React, {FC} from 'react';
 import {
-  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {SubLoginScreenProps} from '../utils/LoginUserNavigation';
-import {Buttons} from '../components/Buttons';
-import {Input} from '../components/Inputs';
+import {Buttons} from '../components/atoms/Buttons';
+import {Input} from '../components/atoms/Inputs';
 import {Formik, Field} from 'formik';
-import * as yup from 'yup';
-import Back from '../assets/images/BackIcon.svg';
 import BackgroundImage from '../assets/images/BackgroundImage.svg';
 import EyeClose from '../assets/images/eyeClose.svg';
-
-const registerValidationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .matches(
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      'Email must have a number, special character, small and capital alphabets.',
-    )
-    .required('Email is required'),
-  password: yup
-    .string()
-    .matches(/\w*[a-z]\w*/, 'Password must have a small letter')
-    .matches(/\w*[A-Z]\w*/, 'Password must have a capital letter')
-    .matches(/\d/, 'Password must have a number')
-    .min(6, ({min}) => `Password must be at least ${min} characters`)
-    .required('Enter password'),
-});
+import {ValidationSchema} from '../components/Validation';
+import {Container, MyAwareScrollView} from '../styles/LoginRegisterStyles';
+import {Headers} from '../components/molecules/Header';
+import {WelcomeText} from '../components/molecules/WelcomView';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
   const OnPressBack = () => {
     props.navigation.push('Login');
   };
   return (
-    <View style={styles.container}>
-      <KeyboardAwareScrollView>
-        <View style={styles.header}>
-          <TouchableWithoutFeedback onPress={OnPressBack}>
-            <View style={styles.backView}>
-              <Back />
-            </View>
-          </TouchableWithoutFeedback>
-          <Image
-            source={require('../assets/images/AppLogo.png')}
-            style={styles.logo}
-          />
-        </View>
+    <Container>
+      <MyAwareScrollView>
+        <Headers justify={false} backBtn={true} onPress={OnPressBack} />
         <BackgroundImage />
-        <View style={styles.welcomeView}>
-          <Text style={styles.nameText}>MABUHAY!</Text>
-          <Text style={styles.welcomeText}>
-            Welcome to the home of Filipino Live Sports
-          </Text>
-        </View>
+        <WelcomeText justify={false} backBtn={true} onPress={OnPressBack} />
         <Formik
-          validationSchema={registerValidationSchema}
+          validationSchema={ValidationSchema}
           initialValues={{
             email: '',
             password: '',
           }}
-          onSubmit={() => {
-            console.log('submit');
-          }}>
+          >
           {({isValid, handleSubmit, values, dirty}) => (
             <>
               <View style={styles.inputView}>
                 <Field
                   component={Input}
                   name="email"
-                  placeholder="Email"
+                  inputPlaceholder="Email"
                   value={values.email}
-                  keyboardType="email-address"
-                  secureTextEntry={false}
+                  keyboardValue="email-address"
+                  secureText={false}
                 />
                 <View style={styles.passwordView}>
                   <Field
                     component={Input}
                     name="password"
-                    placeholder="Password"
+                    inputPlaceholder="Password"
                     value={values.password}
                     keyboardType="default"
-                    secureTextEntry={true}
+                    secureText={true}
                   />
                   <TouchableOpacity style={styles.EyeView}>
                     <EyeClose />
@@ -123,75 +89,19 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
             </>
           )}
         </Formik>
-      </KeyboardAwareScrollView>
-    </View>
+      </MyAwareScrollView>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: '#111111',
-    position: 'relative',
-    flex: 1,
-  },
-  header: {
-    height: 65,
-    width: '100%',
-    flexDirection: 'row',
-    backgroundColor: '#030406',
-    alignItems: 'center',
-  },
-  backView: {
-    height: 65,
-    width: 44.6,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  back: {
-    width: 8.73,
-    height: 16,
-  },
-  logo: {
-    resizeMode: 'cover',
-    height: 40,
-    width: 180,
-    left: 77.1490908916,
-  },
   backgroundImage: {
     height: 240,
     width: '100%',
     borderColor: 'white',
   },
-  welcomeView: {
-    width: 313,
-    height: 55,
-    left: 16,
-    marginTop: 34,
-  },
-  nameText: {
-    height: 28,
-    fontWeight: '700',
-    fontSize: 24,
-    lineHeight: 28,
-    alignItems: 'center',
-    textTransform: 'uppercase',
-    color: '#FFFFFF',
-    fontFamily: 'Roboto-Regular',
-  },
-  welcomeText: {
-    height: 19,
-    top: 8,
-    fontWeight: '400',
-    fontSize: 16,
-    lineHeight: 19,
-    alignItems: 'center',
-    color: '#FFFFFF',
-  },
   inputView: {
     marginTop: 32,
-    // height: 98,
     width: 358,
     left: 16,
   },
