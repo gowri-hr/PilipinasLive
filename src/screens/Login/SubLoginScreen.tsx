@@ -20,8 +20,7 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 import {useWindowDimensions} from 'react-native';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
-  const {width, height} = useWindowDimensions();
-  console.log(width);
+
   const OnPressBack = () => {
     props.navigation.push('Login');
   };
@@ -46,7 +45,7 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
               email: '',
               password: '',
             }}
-            onSubmit={() => console.log('submit')}>
+            onSubmit={() => props.navigation.push('ForgotPassword')}>
             {({isValid, handleSubmit, values, dirty}) => (
               <>
                 <InputView marginTop={32}>

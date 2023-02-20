@@ -23,7 +23,8 @@ const ForgotPassword: FC<ForgotpasswordScreenProps> = props => {
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <BackImageView>
+          <BackImageView
+            onPress={() => props.navigation.push('ForgotPassword')}>
             <Back />
           </BackImageView>
           <WelcomeText
@@ -37,7 +38,9 @@ const ForgotPassword: FC<ForgotpasswordScreenProps> = props => {
           <Formik
             validationSchema={ValidationSchema}
             initialValues={{
-              email: '',
+                password: '',
+                confirmPassword: '',
+                firstname: '',
             }}
             onSubmit={() => console.log('submit forgot')}>
             {({values, handleSubmit, isValid, dirty}) => (
@@ -45,33 +48,33 @@ const ForgotPassword: FC<ForgotpasswordScreenProps> = props => {
                 <InputView marginTop={51}>
                   <Field
                     component={InputWithImage}
-                    name="email"
+                    name="password"
                     inputPlaceholder="Enter Password*"
-                    value={values.email}
+                    value={values.password}
                     keyboardValue="email-address"
                     secureText={false}
                     EyeImage={true}
                   />
                   <Field
                     component={InputWithImage}
-                    name="email"
+                    name="confirmPassword"
                     inputPlaceholder="Confirm Password*"
-                    value={values.email}
+                    value={values.confirmPassword}
                     keyboardValue="email-address"
                     secureText={false}
                     EyeImage={true}
                   />
                   <Field
                     component={InputWithImage}
-                    name="email"
+                    name="firstname"
                     inputPlaceholder="First Name (Optional)"
-                    value={values.email}
+                    value={values.firstname}
                     keyboardValue="email-address"
                     secureText={false}
                     EyeImage={false}
                   />
                 </InputView>
-                <PrivacyPolicy />
+                <Field component={PrivacyPolicy} />
                 <ButtonMainView marginTop={220}>
                   <Field
                     component={Buttons}

@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const BackImageView = styled.View`
+export const BackImageView = styled.TouchableOpacity`
   margin-top: 33px;
   left: 16px;
 `;
