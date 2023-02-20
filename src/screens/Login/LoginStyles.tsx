@@ -83,8 +83,11 @@ export const ButtonMainView = styled.View<ButtonMainViewProps>`
   right: 16px;
 `;
 
-export const InputView = styled.View`
-  margin-top: 32px;
+interface InputViewProps {
+  marginTop: number;
+}
+export const InputView = styled.View<InputViewProps>`
+  margin-top: ${(props: InputViewProps) => `${props.marginTop}px`};
   width: 358px;
   left: 16px;
 `;

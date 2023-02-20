@@ -1,18 +1,18 @@
 import React, {FC} from 'react';
 import {TouchableWithoutFeedback} from 'react-native';
-import Back from '../../assets/images/BackIcon.svg';
+import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
 
 import {
   HeaderView,
   LogoImageView,
   BackView,
-} from '../../styles/LoginRegisterStyles';
+} from '../../screens/Login/LoginStyles';
 
 interface Header {
   justify: boolean;
   backBtn: boolean;
-  onPress: any;
+  onPress?: () => void;
 }
 
 export const Headers: FC<Header> = props => {
@@ -31,12 +31,6 @@ export const Headers: FC<Header> = props => {
           </BackView>
         </TouchableWithoutFeedback>
       ) : null}
-      {/* <LogoImage
-        source={require('../../assets/images/Applogo.svg')}
-        width={67.41}
-        height={38}
-        marginLeft={props.backBtn ? 70.1490908916 : 4.13}
-      /> */}
       <LogoImageView marginLeft={props.backBtn ? 138 : 4.13}>
         <AppLogo />
       </LogoImageView>

@@ -4,6 +4,7 @@ export const MainView = styled.View`
   position: relative;
   margin-top: 16px;
 `;
+
 export const InputTouchableWithoutFeedback = styled.TouchableOpacity`
   position: absolute;
   top: 12px;

@@ -1,10 +1,10 @@
 import React, {FC} from 'react';
-import {LoginScreenProps} from '../utils/LoginUserNavigation';
-import {Buttons} from '../components/atoms/Buttons/Buttons';
-import {Input} from '../components/atoms/Inputs/Inputs';
+import {LoginScreenProps} from '../../utils/LoginUserNavigation';
+import {Buttons} from '../../components/atoms/Buttons/Buttons';
+import {Input} from '../../components/atoms/Inputs/Inputs';
 import {Formik, Field} from 'formik';
-import BackgroundImage from '../assets/images/BackgroundImage.svg';
-import {ValidationSchema} from '../components/Validation';
+import BackgroundImage from '../../assets/images/BackgroundImage.svg';
+import {ValidationSchema} from '../../components/Validation';
 import {
   Container,
   MyAwareScrollView,
@@ -13,10 +13,10 @@ import {
   ForgetText,
   ForgetView,
   InputView,
-} from '../styles/LoginRegisterStyles';
-import {MyTouchableWithoutFeedback} from '../components/atoms/Buttons/Buttonstyles';
-import {Headers} from '../components/molecules/Header';
-import {WelcomeText} from '../components/molecules/WelcomView';
+} from './LoginStyles';
+import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Buttonstyles';
+import {Headers} from '../../components/molecules/Header';
+import {WelcomeText} from '../../components/molecules/WelcomView';
 
 const Login: FC<LoginScreenProps> = props => {
   const handleContinue = () => {
@@ -27,9 +27,16 @@ const Login: FC<LoginScreenProps> = props => {
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <Headers justify={true} backBtn={false} onPress={null} />
+          <Headers justify={true} backBtn={false} />
           <BackgroundImage />
-          <WelcomeText justify={true} backBtn={false} onPress={null} />
+          <WelcomeText
+            justify={true}
+            backBtn={false}
+            marginTop={34}
+            texttransform = {true}
+            firstText="MABUHAY!"
+            secondText="Welcome to the home of Filipino Live Sports"
+          />
           <Formik
             validationSchema={ValidationSchema}
             initialValues={{
@@ -38,7 +45,7 @@ const Login: FC<LoginScreenProps> = props => {
             onSubmit={handleContinue}>
             {({values, dirty}) => (
               <>
-                <InputView>
+                <InputView marginTop={32}>
                   <Field
                     component={Input}
                     name="email"
@@ -46,6 +53,7 @@ const Login: FC<LoginScreenProps> = props => {
                     value={values.email}
                     keyboardValue="email-address"
                     secureText={false}
+                    EyeImage={false}
                   />
                 </InputView>
                 <MyTouchableWithoutFeedback
@@ -59,7 +67,7 @@ const Login: FC<LoginScreenProps> = props => {
                 <ButtonMainView marginTop={170}>
                   <Buttons
                     title="CONTINUE"
-                    disabled={!(dirty)}
+                    disabled={!dirty}
                     onPress={handleContinue}
                   />
                 </ButtonMainView>

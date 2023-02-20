@@ -2,12 +2,16 @@ import React, {FC} from 'react';
 import {
   HeaderView,
   TextView,
-} from '../../styles/LoginRegisterStyles';
+} from '../../screens/Login/LoginStyles';
 
 interface Header {
   justify: boolean;
   backBtn: boolean;
-  onPress: any;
+  onPress?: () => void;
+  marginTop?: number;
+  firstText: string;
+  secondText: string;
+  texttransform: boolean;
 }
 
 export const WelcomeText: FC<Header> = props => {
@@ -18,15 +22,16 @@ export const WelcomeText: FC<Header> = props => {
       marginleft={16}
       flexDirection="column"
       alignItems={false}
-      marginTop={34}>
+      marginTop={props.marginTop}>
       <TextView
         height={28}
         fontWeight={700}
         lineHeight={28}
         fontSize={24}
         top={false}
-        textTransform={true}>
-        MABUHAY!
+        textTransform={props.texttransform ? true : false}
+        >
+        {props.firstText}
       </TextView>
       <TextView
         height={19}
@@ -34,8 +39,9 @@ export const WelcomeText: FC<Header> = props => {
         lineHeight={19}
         fontSize={16}
         top={true}
-        textTransform={false}>
-        Welcome to the home of Filipino Live Sports
+        textTransform={false}
+        >
+        {props.secondText}
       </TextView>
     </HeaderView>
   );

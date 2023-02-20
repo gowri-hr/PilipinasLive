@@ -1,7 +1,12 @@
 import React, {FC} from 'react';
-import {MyTextInput, ErrorText, MainView, InputTouchableWithoutFeedback} from './InputStyles';
-import {MyTouchableWithoutFeedback} from '../Buttons/Buttonstyles';
+import {
+  MyTextInput,
+  ErrorText,
+  MainView,
+  InputTouchableWithoutFeedback,
+} from './InputStyles';
 import EyeClose from '../../../assets/images/eyeClose.svg';
+
 interface UserInput {
   inputPlaceholder: string;
   keyboardValue: any;
@@ -17,7 +22,8 @@ interface UserInput {
     touched: {[key: string]: boolean};
     setFieldTouched: (value: string) => void;
   };
-  eyeIconstyle: {};
+  eyeIconstyle?: {};
+  EyeImage?: boolean;
 }
 export const Input: FC<UserInput> = props => {
   const {
@@ -71,9 +77,12 @@ export const InputWithImage: FC<UserInput> = props => {
         }}
         {...inputProps}
       />
-      <InputTouchableWithoutFeedback>
-        <EyeClose />
-      </InputTouchableWithoutFeedback>
+      {props.EyeImage ? (
+        <InputTouchableWithoutFeedback>
+          <EyeClose />
+        </InputTouchableWithoutFeedback>
+      ) : null}
+
       {hasError && <ErrorText>{errors[name]}</ErrorText>}
     </MainView>
   );
