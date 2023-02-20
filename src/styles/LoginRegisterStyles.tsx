@@ -1,6 +1,10 @@
 import styled from 'styled-components/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
+export const MySafeAreaView = styled.SafeAreaView`
+  flex: 1;
+`;
+
 export const Container = styled.View`
   width: 100%;
   height: 100%;
@@ -63,12 +67,40 @@ export const BackView = styled.View`
 `;
 
 interface ImageProps {
-  width: number;
-  height: number;
   marginLeft: number;
 }
-export const LogoImage = styled.Image<ImageProps>`
-  width: ${(props: ImageProps) => `${props.width}px`};
-  height: ${(props: ImageProps) => `${props.height}px`};
+export const LogoImageView = styled.View<ImageProps>`
   margin-left: ${(props: ImageProps) => `${props.marginLeft}px`};
+`;
+
+interface ButtonMainViewProps {
+  marginTop: number;
+}
+export const ButtonMainView = styled.View<ButtonMainViewProps>`
+  bottom: 15px;
+  margin-top: ${(props: ButtonMainViewProps) => `${props.marginTop}px`};
+  left: 16px;
+  right: 16px;
+`;
+
+export const InputView = styled.View`
+  margin-top: 32px;
+  width: 358px;
+  left: 16px;
+`;
+
+export const ForgetView = styled.View`
+  margin-top: 16px;
+`;
+
+export const ForgetText = styled.Text`
+  color: #ffffff;
+  left: 16px;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-color: #ffffff;
+  font-family: 'Roboto-Regular';
 `;

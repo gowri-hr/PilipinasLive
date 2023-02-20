@@ -19,7 +19,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const LoginUserStack: FC<{}> = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Login">
+      <RootStack.Navigator initialRouteName="SubLogin">
         <RootStack.Screen
           options={{
             headerShown: false,
