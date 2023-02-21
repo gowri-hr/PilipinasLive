@@ -1,11 +1,21 @@
 import * as yup from 'yup';
 
-export const ValidationSchema = yup.object().shape({
+export const ValidationSchemaLogin = yup.object().shape({
     email: yup
       .string()
       .matches(
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-        'Email must have a number, special character, small and capital alphabets.',
+        /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/,
+        'Email must have a number and special character.',
+      )
+      .required('Email is required')
+  });
+
+  export const ValidationSchemaSubLogin = yup.object().shape({
+    email: yup
+      .string()
+      .matches(
+        /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/,
+        'Email must have a number and special character.',
       )
       .required('Email is required'),
     password: yup

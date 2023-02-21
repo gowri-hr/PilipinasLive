@@ -2,19 +2,25 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, StackScreenProps} from '@react-navigation/stack';
 // import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import { FC } from 'react';
-import ForgotPassword from '../screens/ForgotPassword/ForgotpasswordScreen';
+import SignUp from '../screens/SignUp/SignUpScreen';
 import Login from '../screens/Login/LoginScreen';
 import SubLogin from '../screens/Login/SubLoginScreen';
+import ForgotPassword from '../screens/ForgotPassword/ForgotPasswordScreen';
+import VerifyOTP from '../screens/VerifyOTP/VerifyOTPscreen';
 
 export type RootStackParamList = {
   Login: undefined;
   SubLogin: undefined;
+  SignUp: undefined;
   ForgotPassword: undefined;
+  VerifyOTP: undefined;
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
 export type LoginScreenProps = StackScreenProps<RootStackParamList, "Login">
 export type SubLoginScreenProps = StackScreenProps<RootStackParamList, "SubLogin">
-export type ForgotpasswordScreenProps = StackScreenProps<RootStackParamList, "ForgotPassword">
+export type SignUpScreenProps = StackScreenProps<RootStackParamList, "SignUp">
+export type ForgotPasswordScreenProps = StackScreenProps<RootStackParamList, "ForgotPassword">
+export type VerifyOTPScreenProps = StackScreenProps<RootStackParamList, "VerifyOTP">
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -22,7 +28,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const LoginUserStack: FC<{}> = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="ForgotPassword">
+      <RootStack.Navigator initialRouteName="Login">
         <RootStack.Screen
           options={{
             headerShown: false,
@@ -41,8 +47,22 @@ const LoginUserStack: FC<{}> = () => {
           options={{
             headerShown: false,
           }}
+          name="SignUp"
+          component={SignUp}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
           name="ForgotPassword"
           component={ForgotPassword}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="VerifyOTP"
+          component={VerifyOTP}
         />
       </RootStack.Navigator>
     </NavigationContainer>

@@ -4,21 +4,22 @@ import {
   TextView,
 } from '../../screens/Login/LoginStyles';
 
-interface Header {
+interface WelcomeProps {
   justify: boolean;
   backBtn: boolean;
   onPress?: () => void;
-  marginTop?: number;
+  marginTop: number;
   firstText: string;
-  secondText: string;
+  secondText?: string;
   texttransform: boolean;
+  height: number;
 }
 
-export const WelcomeText: FC<Header> = props => {
+export const WelcomeText: FC<WelcomeProps> = props => {
   return (
     <HeaderView
       justify={props.justify}
-      height={55}
+      height={props.height}
       marginleft={16}
       flexDirection="column"
       alignItems={false}

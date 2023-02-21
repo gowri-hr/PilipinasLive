@@ -28,12 +28,33 @@ export const MyTextInput = styled.TextInput`
   font-family: 'Roboto-Regular';
   color: #111111;
 `;
-
-export const ErrorText = styled.Text`
+export const MyTextInputError = styled.TextInput`
+  border: 2px solid #ec2027;
+`;
+export const ErrorTextMainView = styled.View`
   width: 358px;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4px;
+`;
+export const ErrorDescriptionText = styled.Text`
   font-size: 12px;
-  color: #ffffff;
+  font-family: 'Roboto-Medium';
+  color: #ec2027;
   margin-top: 3px;
   margin-bottom: 3px;
-  text-align: center;
+  text-align: left;
+  line-height: 22px;
+  margin-left: 7px;
+`;
+
+export const OtpTextInput = styled.TextInput`
+  width: 41px;
+  height: 41px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  font-family: 'Roboto-Regular';
+  font-size: 14px;
+  color: #333333;
+  padding: 9.5px 15px 9.5px 15px
 `;

@@ -68,9 +68,11 @@ export const BackView = styled.View`
 
 interface ImageProps {
   marginLeft: number;
+  marginTop?: number;
 }
 export const LogoImageView = styled.View<ImageProps>`
   margin-left: ${(props: ImageProps) => `${props.marginLeft}px`};
+  margin-top: ${(props: ImageProps) => `${props.marginTop}px`};
 `;
 
 interface ButtonMainViewProps {

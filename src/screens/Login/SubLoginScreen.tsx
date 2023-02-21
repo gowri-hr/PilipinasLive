@@ -4,7 +4,7 @@ import {Buttons} from '../../components/atoms/Buttons/Buttons';
 import {Input, InputWithImage} from '../../components/atoms/Inputs/Inputs';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
-import {ValidationSchema} from '../../components/Validation';
+import {ValidationSchemaSubLogin} from '../../components/Validation';
 import {
   Container,
   MyAwareScrollView,
@@ -17,7 +17,6 @@ import {
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Buttonstyles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
-import {useWindowDimensions} from 'react-native';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
 
@@ -35,17 +34,18 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
             backBtn={true}
             onPress={OnPressBack}
             marginTop={34}
+            height={55}
             texttransform = {true}
             firstText="MABUHAY!"
             secondText="Welcome to the home of Filipino Live Sports"
           />
           <Formik
-            validationSchema={ValidationSchema}
+            validationSchema={ValidationSchemaSubLogin}
             initialValues={{
               email: '',
               password: '',
             }}
-            onSubmit={() => props.navigation.push('ForgotPassword')}>
+            onSubmit={() => props.navigation.push('SignUp')}>
             {({isValid, handleSubmit, values, dirty}) => (
               <>
                 <InputView marginTop={32}>

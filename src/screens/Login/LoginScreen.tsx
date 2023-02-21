@@ -4,7 +4,7 @@ import {Buttons} from '../../components/atoms/Buttons/Buttons';
 import {Input} from '../../components/atoms/Inputs/Inputs';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
-import {ValidationSchema} from '../../components/Validation';
+import {ValidationSchemaLogin} from '../../components/Validation';
 import {
   Container,
   MyAwareScrollView,
@@ -20,7 +20,6 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 
 const Login: FC<LoginScreenProps> = props => {
   const handleContinue = () => {
-    console.log('submit');
     props.navigation.push('SubLogin');
   };
   return (
@@ -33,17 +32,18 @@ const Login: FC<LoginScreenProps> = props => {
             justify={true}
             backBtn={false}
             marginTop={34}
-            texttransform = {true}
+            height={55}
+            texttransform={true}
             firstText="MABUHAY!"
             secondText="Welcome to the home of Filipino Live Sports"
           />
           <Formik
-            validationSchema={ValidationSchema}
+            validationSchema={ValidationSchemaLogin}
             initialValues={{
               email: '',
             }}
             onSubmit={handleContinue}>
-            {({values, dirty}) => (
+            {({values, dirty, isValid, errors}) => (
               <>
                 <InputView marginTop={32}>
                   <Field
@@ -67,7 +67,7 @@ const Login: FC<LoginScreenProps> = props => {
                 <ButtonMainView marginTop={170}>
                   <Buttons
                     title="CONTINUE"
-                    disabled={!dirty}
+                    disabled={!(isValid && dirty)}
                     onPress={handleContinue}
                   />
                 </ButtonMainView>

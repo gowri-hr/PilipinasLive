@@ -31,7 +31,7 @@ export const Headers: FC<Header> = props => {
           </BackView>
         </TouchableWithoutFeedback>
       ) : null}
-      <LogoImageView marginLeft={props.backBtn ? 138 : 4.13}>
+      <LogoImageView marginLeft={props.backBtn ? 138 : 4.13} marginTop={0}>
         <AppLogo />
       </LogoImageView>
     </HeaderView>
