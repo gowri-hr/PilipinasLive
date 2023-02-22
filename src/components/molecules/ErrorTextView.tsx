@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import { ErrorDescriptionText, ErrorTextMainView } from '../atoms/Inputs/InputStyles';
+import { ErrorDescriptionText, ErrorTextMainView } from '../atoms/Inputs/Styles';
 import ErrorImage from '../../assets/images/clarity_error-line.svg';
 
 interface Errors {

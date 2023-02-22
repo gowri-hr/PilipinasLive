@@ -4,7 +4,7 @@ import {
   PrivacyPolicyView,
   CheckTouchableOpacity,
   CheckText,
-} from '../../screens/SignUp/SignUpstyles';
+} from '../../pages/SignUp/Styles';
 import UnCheckbox from '../../assets/images/UnCheckBox.svg';
 
 export const PrivacyPolicy: FC<{}> = props => {

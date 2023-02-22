@@ -2,11 +2,11 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator, StackScreenProps} from '@react-navigation/stack';
 // import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import { FC } from 'react';
-import SignUp from '../screens/SignUp/SignUpScreen';
-import Login from '../screens/Login/LoginScreen';
-import SubLogin from '../screens/Login/SubLoginScreen';
-import ForgotPassword from '../screens/ForgotPassword/ForgotPasswordScreen';
-import VerifyOTP from '../screens/VerifyOTP/VerifyOTPscreen';
+import SignUp from '../pages/SignUp/Index';
+import Login from '../pages/Login/Index';
+import SubLogin from '../pages/SubLogin/Index';
+import ForgotPassword from '../pages/ForgotPassword/Index';
+import VerifyOTP from '../pages/VerifyOTP/Index';
 
 export type RootStackParamList = {
   Login: undefined;

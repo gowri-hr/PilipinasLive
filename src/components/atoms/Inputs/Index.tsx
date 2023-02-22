@@ -5,7 +5,7 @@ import {
   InputTouchableWithoutFeedback,
   MyTextInputError,
   OtpTextInput,
-} from './InputStyles';
+} from './Styles';
 import EyeClose from '../../../assets/images/eyeClose.svg';
 import {ErrorText} from '../../molecules/ErrorTextView';
 

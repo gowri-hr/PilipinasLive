@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {MyTouchableWithoutFeedback,ButtonView, ButtonTitleText} from './Buttonstyles';
+import {MyTouchableWithoutFeedback,ButtonView, ButtonTitleText} from './Styles';
 
 interface Button {
   title: string;

@@ -9,8 +9,8 @@ import {
   LogoImageView,
   MyAwareScrollView,
   MySafeAreaView,
-} from '../Login/LoginStyles';
-import {BackImageView} from '../SignUp/SignUpstyles';
+} from '../Login/Styles';
+import {BackImageView} from '../SignUp/Styles';
 import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
 import {WelcomeText} from '../../components/molecules/WelcomView';
@@ -18,10 +18,10 @@ import {
   EditTouchabaleWithoutFeedback,
   OtpText,
   OtpView,
-} from './VerifyOTPStyles';
-import {Buttons} from '../../components/atoms/Buttons/Buttons';
+} from './Styles';
+import {Buttons} from '../../components/atoms/Buttons/Index';
 import { ValidationSchemaSubLogin } from '../../components/Validation';
-import { OtpInput } from '../../components/atoms/Inputs/Inputs';
+import { OtpInput } from '../../components/atoms/Inputs/Index';
 import String from '../../components/Strings';
 
 const VerifyOTP: FC<VerifyOTPScreenProps> = props => {

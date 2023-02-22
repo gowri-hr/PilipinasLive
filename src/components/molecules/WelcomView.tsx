@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {
   HeaderView,
   TextView,
-} from '../../screens/Login/LoginStyles';
+} from '../../pages/Login/Styles';
 
 interface WelcomeProps {
   justify: boolean;

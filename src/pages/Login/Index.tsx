@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {LoginScreenProps} from '../../utils/LoginUserNavigation';
-import {Buttons} from '../../components/atoms/Buttons/Buttons';
-import {Input} from '../../components/atoms/Inputs/Inputs';
+import {Buttons} from '../../components/atoms/Buttons/Index';
+import {Input} from '../../components/atoms/Inputs/Index';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
 import {ValidationSchemaLogin} from '../../components/Validation';
@@ -13,8 +13,8 @@ import {
   ForgetText,
   ForgetView,
   InputView,
-} from './LoginStyles';
-import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Buttonstyles';
+} from './Styles';
+import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../components/Strings';

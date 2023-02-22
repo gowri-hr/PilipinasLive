@@ -7,7 +7,7 @@ import {
   HeaderView,
   LogoImageView,
   BackView,
-} from '../../screens/Login/LoginStyles';
+} from '../../pages/Login/Styles';
 
 interface Header {
   justify: boolean;

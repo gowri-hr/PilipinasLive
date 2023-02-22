@@ -7,15 +7,15 @@ import {
   LogoImageView,
   MyAwareScrollView,
   MySafeAreaView,
-} from '../Login/LoginStyles';
-import {BackImageView} from '../SignUp/SignUpstyles';
+} from '../Login/Styles';
+import {BackImageView} from '../SignUp/Styles';
 import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import {Formik, Field} from 'formik';
 import { ValidationSchemaLogin } from '../../components/Validation';
-import { Input } from '../../components/atoms/Inputs/Inputs';
-import { Buttons } from '../../components/atoms/Buttons/Buttons';
+import { Input } from '../../components/atoms/Inputs/Index';
+import { Buttons } from '../../components/atoms/Buttons/Index';
 import String from '../../components/Strings';
 const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
   return (

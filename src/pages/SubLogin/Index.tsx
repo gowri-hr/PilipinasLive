@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {SubLoginScreenProps} from '../../utils/LoginUserNavigation';
-import {Buttons} from '../../components/atoms/Buttons/Buttons';
-import {Input, InputWithImage} from '../../components/atoms/Inputs/Inputs';
+import {Buttons} from '../../components/atoms/Buttons/Index';
+import {Input, InputWithImage} from '../../components/atoms/Inputs/Index';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
 import {ValidationSchemaSubLogin} from '../../components/Validation';
@@ -13,8 +13,8 @@ import {
   InputView,
   ForgetView,
   ForgetText,
-} from './LoginStyles';
-import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Buttonstyles';
+} from '../Login/Styles';
+import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../components/Strings';

@@ -9,11 +9,11 @@ import {
   InputView,
   MyAwareScrollView,
   MySafeAreaView,
-} from '../Login/LoginStyles';
-import {BackImageView} from './SignUpstyles';
+} from '../Login/Styles';
+import {BackImageView} from './Styles';
 import {ValidationSchemaSubLogin} from '../../components/Validation';
-import {InputWithImage} from '../../components/atoms/Inputs/Inputs';
-import {Buttons} from '../../components/atoms/Buttons/Buttons';
+import {InputWithImage} from '../../components/atoms/Inputs/Index';
+import {Buttons} from '../../components/atoms/Buttons/Index';
 import PrivacyPolicy from '../../components/molecules/PrivacyPolicyView';
 import String from '../../components/Strings';
 
