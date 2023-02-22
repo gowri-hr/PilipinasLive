@@ -15,6 +15,7 @@ import {ValidationSchemaSubLogin} from '../../components/Validation';
 import {InputWithImage} from '../../components/atoms/Inputs/Inputs';
 import {Buttons} from '../../components/atoms/Buttons/Buttons';
 import PrivacyPolicy from '../../components/molecules/PrivacyPolicyView';
+import String from '../../components/Strings';
 
 const SignUp: FC<SignUpScreenProps> = props => {
   return (
@@ -31,8 +32,8 @@ const SignUp: FC<SignUpScreenProps> = props => {
             marginTop={83.5}
             height={55}
             texttransform={false}
-            firstText="Verification was successful!"
-            secondText="Let’s set up your account"
+            firstText={String.signUpFirstText}
+            secondText={String.signUpSecondText}
           />
           <Formik
             validationSchema={ValidationSchemaSubLogin}
@@ -77,7 +78,7 @@ const SignUp: FC<SignUpScreenProps> = props => {
                 <ButtonMainView marginTop={220}>
                   <Field
                     component={Buttons}
-                    title="CONTINUE"
+                    title={String.buttonTitleContinue}
                     onPress={handleSubmit}
                     disabled={!(isValid && dirty)}
                     style={

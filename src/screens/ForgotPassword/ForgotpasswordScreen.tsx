@@ -16,7 +16,7 @@ import {Formik, Field} from 'formik';
 import { ValidationSchemaLogin } from '../../components/Validation';
 import { Input } from '../../components/atoms/Inputs/Inputs';
 import { Buttons } from '../../components/atoms/Buttons/Buttons';
-
+import String from '../../components/Strings';
 const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
   return (
     <MySafeAreaView>
@@ -34,8 +34,8 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
             marginTop={32.64}
             height={55}
             texttransform={false}
-            firstText="Forgot your password?"
-            secondText="Enter your registered email"
+            firstText={String.forgotFirstText}
+            secondText={String.forgotSecondText}
           />
           <Formik
             validationSchema={ValidationSchemaLogin}
@@ -58,7 +58,7 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
                 </InputView>
                 <ButtonMainView marginTop={343}>
                   <Buttons
-                    title="CONTINUE"
+                    title={String.buttonTitleContinue}
                     disabled={!dirty}
                     onPress={() => console.log('clicked')}
                   />

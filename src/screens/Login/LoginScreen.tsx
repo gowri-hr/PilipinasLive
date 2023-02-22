@@ -17,6 +17,7 @@ import {
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Buttonstyles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
+import String from '../../components/Strings';
 
 const Login: FC<LoginScreenProps> = props => {
   const handleContinue = () => {
@@ -34,8 +35,8 @@ const Login: FC<LoginScreenProps> = props => {
             marginTop={34}
             height={55}
             texttransform={true}
-            firstText="MABUHAY!"
-            secondText="Welcome to the home of Filipino Live Sports"
+            firstText={String.welcomeText}
+            secondText={String.welcomeSubText}
           />
           <Formik
             validationSchema={ValidationSchemaLogin}
@@ -66,7 +67,7 @@ const Login: FC<LoginScreenProps> = props => {
                 </MyTouchableWithoutFeedback>
                 <ButtonMainView marginTop={170}>
                   <Buttons
-                    title="CONTINUE"
+                    title={String.buttonTitleContinue}
                     disabled={!(isValid && dirty)}
                     onPress={handleContinue}
                   />

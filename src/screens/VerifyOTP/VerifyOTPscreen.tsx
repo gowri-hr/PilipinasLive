@@ -22,6 +22,7 @@ import {
 import {Buttons} from '../../components/atoms/Buttons/Buttons';
 import { ValidationSchemaSubLogin } from '../../components/Validation';
 import { OtpInput } from '../../components/atoms/Inputs/Inputs';
+import String from '../../components/Strings';
 
 const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
   return (
@@ -40,7 +41,7 @@ const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
             marginTop={32.64}
             height={28}
             texttransform={false}
-            firstText="Verify your OTP"
+            firstText={String.verifyFirstText}
           />
           <OtpText color="#B3B3B3" marginTop={16} left={16} fontSize={16}>
             OTP was sent to
@@ -118,7 +119,7 @@ const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
                 <ButtonMainView marginTop={258}>
                   <Field
                     component={Buttons}
-                    title="CONTINUE"
+                    title={String.buttonTitleContinue}
                     onPress={handleSubmit}
                     disabled={!dirty}
                     style={
