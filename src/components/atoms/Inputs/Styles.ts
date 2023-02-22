@@ -3,13 +3,14 @@ import styled from 'styled-components/native';
 export const MainView = styled.View`
   position: relative;
   margin-top: 16px;
+  flex-direction: row;
 `;
 
 export const InputTouchableWithoutFeedback = styled.TouchableOpacity`
-  position: absolute;
-  top: 12px;
-  right: 11.5px;
-  border: 1px solid white;
+  height: 24px;
+  width: 26px;
+  right: 40px;
+  align-self: center;
 `;
 
 export const MyTextInput = styled.TextInput`
@@ -22,7 +23,7 @@ export const MyTextInput = styled.TextInput`
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 40px;
   font-weight: 400;
   font-size: 14px;
   font-family: 'Roboto-Regular';
@@ -56,5 +57,5 @@ export const OtpTextInput = styled.TextInput`
   font-family: 'Roboto-Regular';
   font-size: 14px;
   color: #333333;
-  padding: 9.5px 15px 9.5px 15px
+  padding: 9.5px 15px 9.5px 15px;
 `;

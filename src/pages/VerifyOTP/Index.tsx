@@ -63,7 +63,7 @@ const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
               fifthInput: '',
               sixthInput: '',
             }}
-            onSubmit={() => console.log('submit SignUp')}>
+            onSubmit={() => props.navigation.push('Login')}>
             {({values, handleSubmit, isValid, dirty}) => (
               <>
                 <OtpView marginTop={30} width={302}>

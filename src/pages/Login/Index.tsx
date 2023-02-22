@@ -57,10 +57,7 @@ const Login: FC<LoginScreenProps> = props => {
                     EyeImage={false}
                   />
                 </InputView>
-                <MyTouchableWithoutFeedback
-                  onPress={() => {
-                    console.log('forgot');
-                  }}>
+                <MyTouchableWithoutFeedback>
                   <ForgetView>
                     <ForgetText>Forgot your password?</ForgetText>
                   </ForgetView>

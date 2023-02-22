@@ -6,6 +6,8 @@ const String = new LocalizedStrings({
     second: 'Email is required',
     passwordMatch: 'Please enter a password with at least 8 characters',
     passwordRequired: 'Enter password',
+    confirmPasswordRequired: 'Enter confirm password',
+    confirmPasswordMatch: 'Password do not match',
     welcomeText: 'MABUHAY!',
     welcomeSubText: 'Welcome to the home of Filipino Live Sports',
     forgotFirstText: 'Forgot your password?',

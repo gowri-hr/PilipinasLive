@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {SignUpScreenProps} from '../../utils/LoginUserNavigation';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import Back from '../../assets/images/BackIcon2.svg';
@@ -11,19 +11,49 @@ import {
   MySafeAreaView,
 } from '../Login/Styles';
 import {BackImageView} from './Styles';
-import {ValidationSchemaSubLogin} from '../../components/Validation';
+import {ValidationSchemaSignUp} from '../../components/Validation';
 import {InputWithImage} from '../../components/atoms/Inputs/Index';
 import {Buttons} from '../../components/atoms/Buttons/Index';
 import PrivacyPolicy from '../../components/molecules/PrivacyPolicyView';
 import String from '../../components/Strings';
 
+interface CheckProps {
+  checkBtn: boolean;
+}
+interface SecureTextProps {
+  secure?: boolean;
+  secureConfirmPassword?: boolean;
+}
 const SignUp: FC<SignUpScreenProps> = props => {
+  const [check, setCheck] = useState<CheckProps>({checkBtn: false});
+  const [secureText, setSecureText] = useState<SecureTextProps>({
+    secure: true,
+    secureConfirmPassword: true,
+  });
+
+  const handleCheck = () => {
+    setCheck({checkBtn: !check.checkBtn});
+  };
+
+  const handleSecurePassword = () => {
+    setSecureText({
+      secure: !secureText.secure,
+      secureConfirmPassword: secureText.secureConfirmPassword,
+    });
+  };
+
+  const handleSecureConfirmPassword = () => {
+    setSecureText({
+      secureConfirmPassword: !secureText.secureConfirmPassword,
+      secure: secureText.secure,
+    });
+  };
+
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <BackImageView
-            onPress={() => props.navigation.push('Login')}>
+          <BackImageView onPress={() => props.navigation.push('Login')}>
             <Back />
           </BackImageView>
           <WelcomeText
@@ -36,13 +66,13 @@ const SignUp: FC<SignUpScreenProps> = props => {
             secondText={String.signUpSecondText}
           />
           <Formik
-            validationSchema={ValidationSchemaSubLogin}
+            validationSchema={ValidationSchemaSignUp}
             initialValues={{
-                password: '',
-                confirmPassword: '',
-                firstname: '',
+              password: '',
+              confirmPassword: '',
+              firstname: '',
             }}
-            onSubmit={() => console.log('submit SignUp')}>
+            onSubmit={() => props.navigation.push('Login')}>
             {({values, handleSubmit, isValid, dirty}) => (
               <>
                 <InputView marginTop={51}>
@@ -52,8 +82,10 @@ const SignUp: FC<SignUpScreenProps> = props => {
                     inputPlaceholder="Enter Password*"
                     value={values.password}
                     keyboardValue="email-address"
-                    secureText={false}
+                    secureText={secureText.secure ? false : true}
                     EyeImage={true}
+                    onPress={handleSecurePassword}
+                    secure={secureText.secure}
                   />
                   <Field
                     component={InputWithImage}
@@ -61,8 +93,10 @@ const SignUp: FC<SignUpScreenProps> = props => {
                     inputPlaceholder="Confirm Password*"
                     value={values.confirmPassword}
                     keyboardValue="email-address"
-                    secureText={false}
+                    secureText={secureText.secureConfirmPassword ? false : true}
                     EyeImage={true}
+                    onPress={handleSecureConfirmPassword}
+                    secure={secureText.secureConfirmPassword}
                   />
                   <Field
                     component={InputWithImage}
@@ -74,15 +108,15 @@ const SignUp: FC<SignUpScreenProps> = props => {
                     EyeImage={false}
                   />
                 </InputView>
-                <Field component={PrivacyPolicy} />
+                <PrivacyPolicy onPress={handleCheck} check={check.checkBtn} />
                 <ButtonMainView marginTop={220}>
                   <Field
                     component={Buttons}
                     title={String.buttonTitleContinue}
                     onPress={handleSubmit}
-                    disabled={!(isValid && dirty)}
+                    disabled={!(isValid && dirty && check.checkBtn)}
                     style={
-                      isValid && dirty
+                      isValid && dirty && check.checkBtn
                         ? {
                             backgroundColor: 'red',
                             borderColor: '#EC2027',

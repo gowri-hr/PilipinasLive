@@ -69,10 +69,7 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
                     EyeImage={true}
                   />
                 </InputView>
-                <MyTouchableWithoutFeedback
-                  onPress={() => {
-                    console.log('forgot');
-                  }}>
+                <MyTouchableWithoutFeedback>
                   <ForgetView>
                     <ForgetText>Forgot your password?</ForgetText>
                   </ForgetView>

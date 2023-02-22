@@ -42,8 +42,9 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
             initialValues={{
               email: '',
             }}
-            onSubmit={() => console.log('sdfs')}>
-            {({values, dirty}) => (
+            onSubmit={() => props.navigation.push('Login')}
+            >
+            {({values, dirty, handleSubmit}) => (
               <>
                 <InputView marginTop={51}>
                   <Field
@@ -60,7 +61,7 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
                   <Buttons
                     title={String.buttonTitleContinue}
                     disabled={!dirty}
-                    onPress={() => console.log('clicked')}
+                    onPress={handleSubmit}
                   />
                 </ButtonMainView>
               </>
