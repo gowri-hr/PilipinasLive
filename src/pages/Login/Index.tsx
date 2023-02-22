@@ -13,6 +13,7 @@ import {
   ForgetText,
   ForgetView,
   InputView,
+  WelcomeTextLoginView,
 } from './Styles';
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
@@ -29,15 +30,17 @@ const Login: FC<LoginScreenProps> = props => {
         <MyAwareScrollView>
           <Headers justify={true} backBtn={false} />
           <BackgroundImage />
-          <WelcomeText
-            justify={true}
-            backBtn={false}
-            marginTop={34}
-            height={55}
-            texttransform={true}
-            firstText={String.welcomeText}
-            secondText={String.welcomeSubText}
-          />
+          <WelcomeTextLoginView>
+            <WelcomeText
+              // justify={true}
+              // backBtn={false}
+              // marginTop={34}
+              // height={55}
+              texttransform={true}
+              firstText={String.welcomeText}
+              secondText={String.welcomeSubText}
+            />
+          </WelcomeTextLoginView>
           <Formik
             validationSchema={ValidationSchemaLogin}
             initialValues={{

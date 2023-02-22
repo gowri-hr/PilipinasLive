@@ -10,12 +10,13 @@ import {
   MyAwareScrollView,
   MySafeAreaView,
 } from '../Login/Styles';
-import {BackImageView} from './Styles';
+import {BackImageView, WelcomeTextSignupView} from './Styles';
 import {ValidationSchemaSignUp} from '../../components/Validation';
 import {InputWithImage} from '../../components/atoms/Inputs/Index';
 import {Buttons} from '../../components/atoms/Buttons/Index';
 import PrivacyPolicy from '../../components/molecules/PrivacyPolicyView';
 import String from '../../components/Strings';
+import {TouchableWithoutFeedback} from 'react-native';
 
 interface CheckProps {
   checkBtn: boolean;
@@ -53,18 +54,19 @@ const SignUp: FC<SignUpScreenProps> = props => {
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <BackImageView onPress={() => props.navigation.push('Login')}>
-            <Back />
-          </BackImageView>
-          <WelcomeText
-            justify={true}
-            backBtn={false}
-            marginTop={83.5}
-            height={55}
-            texttransform={false}
-            firstText={String.signUpFirstText}
-            secondText={String.signUpSecondText}
-          />
+          <TouchableWithoutFeedback
+            onPress={() => props.navigation.push('Login')}>
+            <BackImageView>
+              <Back />
+            </BackImageView>
+          </TouchableWithoutFeedback>
+          <WelcomeTextSignupView>
+            <WelcomeText
+              texttransform={false}
+              firstText={String.signUpFirstText}
+              secondText={String.signUpSecondText}
+            />
+          </WelcomeTextSignupView>
           <Formik
             validationSchema={ValidationSchemaSignUp}
             initialValues={{

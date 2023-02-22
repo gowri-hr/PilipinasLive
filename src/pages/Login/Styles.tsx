@@ -17,62 +17,70 @@ export const MyAwareScrollView = styled(KeyboardAwareScrollView)`
 `;
 
 interface HeaderProps {
-  justify: boolean;
-  height: number;
-  flexDirection: string;
-  marginleft: number;
-  alignItems: boolean;
-  marginTop: number;
+  justify?: boolean;
+  backBtn: boolean;
 }
-export const HeaderView = styled.View<HeaderProps>`
-  height: ${(props: HeaderProps) => `${props.height}px`};
-  margin-top: ${(props: HeaderProps) => `${props.marginTop}px`};
+export const HeaderView = styled.View`
+  height: 65px;
   background-color: '#030406';
+  margin-left: 16px;
+`;
+export const HeaderViewLogin = styled(HeaderView)<HeaderProps>`
   justify-content: ${(props: HeaderProps) =>
     props.justify ? 'flex-start' : 'null'};
-  align-items: ${(props: HeaderProps) =>
-    props.alignItems ? 'center' : 'flex-start'};
-  flex-direction: ${(props: HeaderProps) => props.flexDirection};
-  margin-left: ${(props: HeaderProps) => `${props.marginleft}px`};
+  align-items: center;
+  margin-left: ${(props: HeaderProps) => (props.backBtn ? '0px' : '16px')};
+  flex-direction: row;
+`;
+export const HeaderViewSubLogin = styled(HeaderView)`
+  align-items: center;
+`;
+export const HeaderViewWelcome = styled(HeaderView)`
+  height: 55px;
+  flex-direction: column;
+  align-items: flex-start;
+`;
+
+export const LogoImageView = styled.View<HeaderProps>`
+  margin-left: ${(props: HeaderProps) => (props.backBtn ? '93px' : '0px')};
+`;
+
+export const WelcomeTextLoginView = styled.TouchableOpacity`
+  margin-top: 34px;
 `;
 
 interface TextProps {
-  height: number;
-  fontWeight: number;
-  lineHeight: number;
-  top: boolean;
-  fontSize: number;
   textTransform: boolean;
 }
 export const TextView = styled.Text<TextProps>`
   font-family: 'Roboto-Regular';
   color: #ffffff;
-  height: ${(props: TextProps) =>
-    props.height ? `${props.height}px` : `${props.height}px`};
-  font-weight: ${(props: TextProps) =>
-    props.fontWeight ? `${props.fontWeight}` : `${props.fontWeight}`};
-  line-height: ${(props: TextProps) =>
-    props.lineHeight ? `${props.lineHeight}px` : `${props.lineHeight}px`};
-  top: ${(props: TextProps) => (props.top ? '8px' : '0px')};
-  font-size: ${(props: TextProps) =>
-    props.fontSize ? `${props.fontSize}px` : `${props.fontSize}px`};
+`;
+export const TextViewTitle = styled(TextView)`
+  height: 28px;
+  font-size: 24px
+  font-weight: 700;
+  line-height: 28px;
   text-transform: ${(props: TextProps) =>
     props.textTransform ? 'uppercase' : 'none'};
 `;
-export const BackView = styled.View`
-  width: 44.6px;
-  height: 65px;
-  justify-content: center;
-  align-items: center;
+
+export const TextViewSubTitle = styled(TextView)`
+  height: 19px;
+  font-size: 16px
+  font-weight: 400;
+  line-height: 19px;
+  margin-top: 8px;
+  text-transform: ${(props: TextProps) =>
+    props.textTransform ? 'uppercase' : 'none'};
 `;
 
-interface ImageProps {
-  marginLeft: number;
-  marginTop?: number;
-}
-export const LogoImageView = styled.View<ImageProps>`
-  margin-left: ${(props: ImageProps) => `${props.marginLeft}px`};
-  margin-top: ${(props: ImageProps) => `${props.marginTop}px`};
+export const BackView = styled.View`
+  width: 50px;
+  height: 65px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 22.68px;
 `;
 
 interface ButtonMainViewProps {

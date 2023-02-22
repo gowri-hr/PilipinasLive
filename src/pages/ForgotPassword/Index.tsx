@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {ForgotPasswordScreenProps} from '../../utils/LoginUserNavigation';
 import {
-    ButtonMainView,
+  ButtonMainView,
   Container,
   InputView,
   LogoImageView,
@@ -13,37 +13,43 @@ import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import {Formik, Field} from 'formik';
-import { ValidationSchemaLogin } from '../../components/Validation';
-import { Input } from '../../components/atoms/Inputs/Index';
-import { Buttons } from '../../components/atoms/Buttons/Index';
+import {ValidationSchemaLogin} from '../../components/Validation';
+import {Input} from '../../components/atoms/Inputs/Index';
+import {Buttons} from '../../components/atoms/Buttons/Index';
 import String from '../../components/Strings';
+import {TouchableWithoutFeedback} from 'react-native';
+import {LogoImage, WelcomeTextForgotPasswordView} from './Styles';
 const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <BackImageView onPress={() => props.navigation.push('Login')}>
-            <Back />
-          </BackImageView>
-          <LogoImageView marginLeft={16} marginTop={63.5}>
+          <TouchableWithoutFeedback
+            onPress={() => props.navigation.push('Login')}>
+            <BackImageView>
+              <Back />
+            </BackImageView>
+          </TouchableWithoutFeedback>
+          <LogoImage>
             <AppLogo width={101.76} height={57.36} />
-          </LogoImageView>
-          <WelcomeText
-            justify={true}
-            backBtn={false}
-            marginTop={32.64}
-            height={55}
-            texttransform={false}
-            firstText={String.forgotFirstText}
-            secondText={String.forgotSecondText}
-          />
+          </LogoImage>
+          <WelcomeTextForgotPasswordView>
+            <WelcomeText
+              // justify={true}
+              // backBtn={false}
+              // marginTop={32.64}
+              // height={55}
+              texttransform={false}
+              firstText={String.forgotFirstText}
+              secondText={String.forgotSecondText}
+            />
+          </WelcomeTextForgotPasswordView>
           <Formik
             validationSchema={ValidationSchemaLogin}
             initialValues={{
               email: '',
             }}
-            onSubmit={() => props.navigation.push('Login')}
-            >
+            onSubmit={() => props.navigation.push('Login')}>
             {({values, dirty, handleSubmit}) => (
               <>
                 <InputView marginTop={51}>

@@ -1,23 +1,46 @@
 import styled from 'styled-components/native';
 
-interface OtpTextProps {
-  color: string;
-  marginTop: number;
-  left: number;
-  fontSize: number;
-  underline?: boolean;
-}
-export const OtpText = styled.Text<OtpTextProps>`
+export const WelcomeTextVerifyOtpView = styled.TouchableOpacity`
+  margin-top: 32.64px;
+`;
+
+export const OtpText = styled.Text`
   font-family: 'Roboto-Regular';
-  font-size: ${(props: OtpTextProps) => `${props.fontSize}px`};
   line-height: 19px;
   text-align: left;
-  color: ${(props: OtpTextProps) => props.color};
-  margin-top: ${(props: OtpTextProps) => `${props.marginTop}px`};
-  left: ${(props: OtpTextProps) => `${props.left}px`};
-  text-decoration-line: ${(props: OtpTextProps) => props.underline ? 'underline' : 'none'};
   text-decoration-style: solid;
   text-decoration-color: #FFFFFF;
+`;
+export const OtpMainText = styled(OtpText)`
+  font-size: 16px;
+  margin-top: 16px;
+  left: 16px;
+  color: #b3b3b3;
+`;
+export const OtpEmailText = styled(OtpText)`
+  font-size: 16px;
+  margin-top: 0px;
+  left: 0px;
+  color: #ffffff;
+`;
+export const ResendOtpText = styled(OtpText)`
+  font-size: 13px;
+  margin-top: 16px;
+  left: 16px;
+  color: #b3b3b3;
+`;
+export const AlreadyText = styled(OtpText)`
+  font-size: 16px;
+  margin-top: 0px;
+  left: 0px;
+  color: #b3b3b3;
+`;
+export const SignInText = styled(OtpText)`
+  font-size: 13px;
+  margin-top: 0px;
+  left: 2px;
+  color: #ffffff;
+  text-decoration-line: underline;
 `;
 
 interface OtpViewProps {

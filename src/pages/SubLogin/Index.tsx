@@ -13,6 +13,7 @@ import {
   InputView,
   ForgetView,
   ForgetText,
+  WelcomeTextLoginView,
 } from '../Login/Styles';
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
@@ -20,7 +21,6 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../components/Strings';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
-
   const OnPressBack = () => {
     props.navigation.push('Login');
   };
@@ -30,16 +30,13 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
         <MyAwareScrollView>
           <Headers justify={false} backBtn={true} onPress={OnPressBack} />
           <BackgroundImage />
-          <WelcomeText
-            justify={false}
-            backBtn={true}
-            onPress={OnPressBack}
-            marginTop={34}
-            height={55}
-            texttransform = {true}
-            firstText={String.welcomeText}
-            secondText={String.welcomeSubText}
-          />
+          <WelcomeTextLoginView>
+            <WelcomeText
+              texttransform={true}
+              firstText={String.welcomeText}
+              secondText={String.welcomeSubText}
+            />
+          </WelcomeTextLoginView>
           <Formik
             validationSchema={ValidationSchemaSubLogin}
             initialValues={{

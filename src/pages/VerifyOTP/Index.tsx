@@ -5,8 +5,6 @@ import {Formik, Field} from 'formik';
 import {
   ButtonMainView,
   Container,
-  InputView,
-  LogoImageView,
   MyAwareScrollView,
   MySafeAreaView,
 } from '../Login/Styles';
@@ -15,41 +13,44 @@ import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import {
+  AlreadyText,
   EditTouchabaleWithoutFeedback,
-  OtpText,
+  OtpEmailText,
+  OtpMainText,
   OtpView,
+  ResendOtpText,
+  SignInText,
+  WelcomeTextVerifyOtpView,
 } from './Styles';
 import {Buttons} from '../../components/atoms/Buttons/Index';
-import { ValidationSchemaSubLogin } from '../../components/Validation';
-import { OtpInput } from '../../components/atoms/Inputs/Index';
+import {OtpInput} from '../../components/atoms/Inputs/Index';
 import String from '../../components/Strings';
+import {LogoImage} from '../ForgotPassword/Styles';
+import {TouchableWithoutFeedback} from 'react-native';
 
 const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <BackImageView>
-            <Back />
-          </BackImageView>
-          <LogoImageView marginLeft={16} marginTop={63.5}>
+          <TouchableWithoutFeedback
+            onPress={() => props.navigation.push('Login')}>
+            <BackImageView>
+              <Back />
+            </BackImageView>
+          </TouchableWithoutFeedback>
+          <LogoImage>
             <AppLogo width={101.76} height={57.36} />
-          </LogoImageView>
-          <WelcomeText
-            justify={true}
-            backBtn={false}
-            marginTop={32.64}
-            height={28}
-            texttransform={false}
-            firstText={String.verifyFirstText}
-          />
-          <OtpText color="#B3B3B3" marginTop={16} left={16} fontSize={16}>
-            OTP was sent to
-          </OtpText>
+          </LogoImage>
+          <WelcomeTextVerifyOtpView>
+            <WelcomeText
+              texttransform={false}
+              firstText={String.verifyFirstText}
+            />
+          </WelcomeTextVerifyOtpView>
+          <OtpMainText>OTP was sent to</OtpMainText>
           <OtpView marginTop={8} width={170}>
-            <OtpText color="#FFFFFF" marginTop={0} left={0} fontSize={16}>
-              abcde@gmail.com
-            </OtpText>
+            <OtpEmailText>abcde@gmail.com</OtpEmailText>
             <EditTouchabaleWithoutFeedback>
               <Edit />
             </EditTouchabaleWithoutFeedback>
@@ -100,23 +101,12 @@ const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
                     values={values.sixthInput}
                   />
                 </OtpView>
-                <OtpText color="#B3B3B3" marginTop={16} left={16} fontSize={13}>
-                  Resend OTP in 57 secs
-                </OtpText>
+                <ResendOtpText>Resend OTP in 57 secs</ResendOtpText>
                 <OtpView marginTop={8} width={220}>
-                  <OtpText color="#B3B3B3" marginTop={0} left={0} fontSize={13}>
-                    Already have an Account?
-                  </OtpText>
-                  <OtpText
-                    color="#FFFFFF"
-                    marginTop={0}
-                    left={0}
-                    fontSize={13}
-                    underline={true}>
-                    Sign in here
-                  </OtpText>
+                  <AlreadyText>Already have an Account?</AlreadyText>
+                  <SignInText>Sign in here</SignInText>
                 </OtpView>
-                <ButtonMainView marginTop={258}>
+                <ButtonMainView marginTop={254}>
                   <Field
                     component={Buttons}
                     title={String.buttonTitleContinue}

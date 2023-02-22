@@ -7,6 +7,7 @@ import {
   HeaderView,
   LogoImageView,
   BackView,
+  HeaderViewLogin,
 } from '../../pages/Login/Styles';
 
 interface Header {
@@ -17,13 +18,7 @@ interface Header {
 
 export const Headers: FC<Header> = props => {
   return (
-    <HeaderView
-      justify={props.justify}
-      height={65}
-      marginleft={props.backBtn ? 0 : 16}
-      flexDirection="row"
-      alignItems={true}
-      marginTop={0}>
+    <HeaderViewLogin justify={props.justify} backBtn={props.backBtn}>
       {props.backBtn ? (
         <TouchableWithoutFeedback onPress={props.onPress}>
           <BackView>
@@ -31,9 +26,9 @@ export const Headers: FC<Header> = props => {
           </BackView>
         </TouchableWithoutFeedback>
       ) : null}
-      <LogoImageView marginLeft={props.backBtn ? 138 : 4.13} marginTop={0}>
+      <LogoImageView backBtn={props.backBtn}>
         <AppLogo />
       </LogoImageView>
-    </HeaderView>
+    </HeaderViewLogin>
   );
 };

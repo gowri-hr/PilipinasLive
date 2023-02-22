@@ -14,7 +14,7 @@ const String = new LocalizedStrings({
     forgotSecondText: 'Enter your registered email',
     buttonTitleContinue: 'CONTINUE',
     verifyFirstText: 'Verify your OTP',
-    signUpFirstText: '"Verification was successful!',
+    signUpFirstText: 'Verification was successful!',
     signUpSecondText: "Let’s set up your account",
   }
 });
