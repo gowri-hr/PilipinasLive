@@ -2,9 +2,7 @@ import React, {FC} from 'react';
 import {TouchableWithoutFeedback} from 'react-native';
 import Back from '../../assets/images/BackIcon2.svg';
 import AppLogo from '../../assets/images/Applogo.svg';
-
 import {
-  HeaderView,
   LogoImageView,
   BackView,
   HeaderViewLogin,
@@ -15,7 +13,6 @@ interface Header {
   backBtn: boolean;
   onPress?: () => void;
 }
-
 export const Headers: FC<Header> = props => {
   return (
     <HeaderViewLogin justify={props.justify} backBtn={props.backBtn}>

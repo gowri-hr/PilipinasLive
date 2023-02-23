@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import String from './Strings';
+import String from '../../assets/strings/Strings';
 
 export const ValidationSchemaLogin = yup.object().shape({
   email: yup

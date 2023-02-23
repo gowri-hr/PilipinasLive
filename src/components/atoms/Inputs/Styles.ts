@@ -1,4 +1,6 @@
 import styled from 'styled-components/native';
+import { COLORS } from '../../../assets/colors/Colors';
+import {FONT} from '../../../assets/fonts/Fonts';
 
 export const MainView = styled.View`
   position: relative;
@@ -16,9 +18,9 @@ export const InputTouchableWithoutFeedback = styled.TouchableOpacity`
 export const MyTextInput = styled.TextInput`
   width: 358px;
   height: 41px;
-  background-color: #ffffff;
-  border-width: 1px;
-  border-color: #dedede;
+  background-color: ${COLORS.textInputBackground};
+  border-width: 2px;
+  border-color: ${COLORS.textInputBorder};
   border-radius: 3px;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -26,11 +28,11 @@ export const MyTextInput = styled.TextInput`
   padding-right: 40px;
   font-weight: 400;
   font-size: 14px;
-  font-family: 'Roboto-Regular';
-  color: #111111;
+  font-family: ${FONT.Regular};
+  color: ${COLORS.InputFont};
 `;
 export const MyTextInputError = styled.TextInput`
-  border: 2px solid #ec2027;
+  border: 2px solid ${COLORS.SecondaryFont};
 `;
 export const ErrorTextMainView = styled.View`
   width: 358px;
@@ -40,8 +42,8 @@ export const ErrorTextMainView = styled.View`
 `;
 export const ErrorDescriptionText = styled.Text`
   font-size: 12px;
-  font-family: 'Roboto-Medium';
-  color: #ec2027;
+  font-family: ${FONT.Medium};
+  color: ${COLORS.SecondaryFont};
   margin-top: 3px;
   margin-bottom: 3px;
   text-align: left;
@@ -52,10 +54,10 @@ export const ErrorDescriptionText = styled.Text`
 export const OtpTextInput = styled.TextInput`
   width: 41px;
   height: 41px;
-  background-color: #ffffff;
+  background-color: ${COLORS.PrimaryFont};
   border-radius: 5px;
-  font-family: 'Roboto-Regular';
+  font-family: ${FONT.Regular};
   font-size: 14px;
-  color: #333333;
+  color: ${COLORS.OtpText};
   padding: 9.5px 15px 9.5px 15px;
 `;

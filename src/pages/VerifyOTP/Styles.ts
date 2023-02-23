@@ -1,59 +1,69 @@
 import styled from 'styled-components/native';
+import { COLORS } from '../../assets/colors/Colors';
+import { FONT } from '../../assets/fonts/Fonts';
+import { ButtonMainView } from '../Login/Styles';
 
 export const WelcomeTextVerifyOtpView = styled.TouchableOpacity`
   margin-top: 32.64px;
 `;
 
 export const OtpText = styled.Text`
-  font-family: 'Roboto-Regular';
+  font-family: ${FONT.Regular};
   line-height: 19px;
   text-align: left;
   text-decoration-style: solid;
-  text-decoration-color: #FFFFFF;
+  color: ${COLORS.OtpFont};
+  text-decoration-color: ${COLORS.PrimaryFont};
 `;
 export const OtpMainText = styled(OtpText)`
   font-size: 16px;
   margin-top: 16px;
   left: 16px;
-  color: #b3b3b3;
 `;
 export const OtpEmailText = styled(OtpText)`
   font-size: 16px;
   margin-top: 0px;
   left: 0px;
-  color: #ffffff;
+  color: ${COLORS.PrimaryFont};
 `;
 export const ResendOtpText = styled(OtpText)`
   font-size: 13px;
   margin-top: 16px;
   left: 16px;
-  color: #b3b3b3;
 `;
 export const AlreadyText = styled(OtpText)`
-  font-size: 16px;
+  font-size: 13px;
   margin-top: 0px;
   left: 0px;
-  color: #b3b3b3;
 `;
 export const SignInText = styled(OtpText)`
   font-size: 13px;
   margin-top: 0px;
   left: 2px;
-  color: #ffffff;
+  color: ${COLORS.PrimaryFont};
   text-decoration-line: underline;
 `;
 
-interface OtpViewProps {
-  marginTop: number;
-  width: number;
-}
-export const OtpView = styled.View<OtpViewProps>`
-  width: ${(props: OtpViewProps) => `${props.width}px`};
+export const OtpView = styled.View`
+  width: 170px;
   flex-direction: row;
-  margin-top: ${(props: OtpViewProps) => `${props.marginTop}px`};
+  margin-top: 8px;
   left: 16px;
   justify-content: space-between;
   position: relative;
 `;
 
+export const OtpInputView = styled(OtpView)`
+  width: 302px;
+  margin-top: 30px;
+`;
+export const OtpSignupView = styled(OtpView)`
+  width: 220px;
+  margin-top: 8px;
+`;
+
 export const EditTouchabaleWithoutFeedback = styled.TouchableWithoutFeedback``;
+
+export const ButtonVerifyOtpView = styled(ButtonMainView)`
+  margin-top: 213px;
+`;

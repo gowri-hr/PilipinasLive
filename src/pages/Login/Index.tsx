@@ -4,21 +4,21 @@ import {Buttons} from '../../components/atoms/Buttons/Index';
 import {Input} from '../../components/atoms/Inputs/Index';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
-import {ValidationSchemaLogin} from '../../components/Validation';
+import {ValidationSchemaLogin} from '../../utils/validation/Validation';
 import {
   Container,
   MyAwareScrollView,
   MySafeAreaView,
-  ButtonMainView,
+  ButtonLoginView,
   ForgetText,
   ForgetView,
-  InputView,
+  LoginInputView,
   WelcomeTextLoginView,
 } from './Styles';
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
-import String from '../../components/Strings';
+import String from '../../assets/strings/Strings';
 
 const Login: FC<LoginScreenProps> = props => {
   const handleContinue = () => {
@@ -32,10 +32,6 @@ const Login: FC<LoginScreenProps> = props => {
           <BackgroundImage />
           <WelcomeTextLoginView>
             <WelcomeText
-              // justify={true}
-              // backBtn={false}
-              // marginTop={34}
-              // height={55}
               texttransform={true}
               firstText={String.welcomeText}
               secondText={String.welcomeSubText}
@@ -47,9 +43,9 @@ const Login: FC<LoginScreenProps> = props => {
               email: '',
             }}
             onSubmit={handleContinue}>
-            {({values, dirty, isValid, errors}) => (
+            {({values, dirty, isValid}) => (
               <>
-                <InputView marginTop={32}>
+                <LoginInputView>
                   <Field
                     component={Input}
                     name="email"
@@ -59,19 +55,20 @@ const Login: FC<LoginScreenProps> = props => {
                     secureText={false}
                     EyeImage={false}
                   />
-                </InputView>
+                </LoginInputView>
                 <MyTouchableWithoutFeedback>
                   <ForgetView>
-                    <ForgetText>Forgot your password?</ForgetText>
+                    <ForgetText>{String.forgotFirstText}</ForgetText>
                   </ForgetView>
                 </MyTouchableWithoutFeedback>
-                <ButtonMainView marginTop={170}>
-                  <Buttons
+                <ButtonLoginView>
+                  <Field
+                    component={Buttons}
                     title={String.buttonTitleContinue}
                     disabled={!(isValid && dirty)}
                     onPress={handleContinue}
                   />
-                </ButtonMainView>
+                </ButtonLoginView>
               </>
             )}
           </Formik>

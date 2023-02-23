@@ -16,6 +16,14 @@ const String = new LocalizedStrings({
     verifyFirstText: 'Verify your OTP',
     signUpFirstText: 'Verification was successful!',
     signUpSecondText: "Let’s set up your account",
+    CheckText1: 'I agree to Pilipina’s ',
+    CheckText2: 'Terms of Use ',
+    CheckText3: 'Privacy Policy',
+    CheckText4: 'and have read and understood the Cignal TV Inc’s',
+    SignInText: 'Sign In here',
+    AlreadyText: 'Already have an Account?',
+    ResendOtpText: 'Resend OTP in 57 secs',
+    OtpText: 'OTP was sent to'
   }
 });
 

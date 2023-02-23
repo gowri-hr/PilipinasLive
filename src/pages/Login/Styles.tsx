@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-
+import {COLORS} from '../../assets/colors/Colors';
+import {FONT} from '../../assets/fonts/Fonts';
 export const MySafeAreaView = styled.SafeAreaView`
   flex: 1;
 `;
@@ -8,7 +9,7 @@ export const MySafeAreaView = styled.SafeAreaView`
 export const Container = styled.View`
   width: 100%;
   height: 100%;
-  background-color: #111111;
+  background-color: ${COLORS.PrimaryBackground};
   flex: 1;
 `;
 
@@ -22,7 +23,7 @@ interface HeaderProps {
 }
 export const HeaderView = styled.View`
   height: 65px;
-  background-color: '#030406';
+  background-color: ${COLORS.SecondaryBackground};
   margin-left: 16px;
 `;
 export const HeaderViewLogin = styled(HeaderView)<HeaderProps>`
@@ -39,6 +40,7 @@ export const HeaderViewWelcome = styled(HeaderView)`
   height: 55px;
   flex-direction: column;
   align-items: flex-start;
+  background-color: ${COLORS.PrimaryBackground};
 `;
 
 export const LogoImageView = styled.View<HeaderProps>`
@@ -53,8 +55,8 @@ interface TextProps {
   textTransform: boolean;
 }
 export const TextView = styled.Text<TextProps>`
-  font-family: 'Roboto-Regular';
-  color: #ffffff;
+  font-family: ${FONT.Regular};
+  color: ${COLORS.PrimaryFont};
 `;
 export const TextViewTitle = styled(TextView)`
   height: 28px;
@@ -83,23 +85,26 @@ export const BackView = styled.View`
   margin-left: 22.68px;
 `;
 
-interface ButtonMainViewProps {
-  marginTop: number;
-}
-export const ButtonMainView = styled.View<ButtonMainViewProps>`
-  bottom: 15px;
-  margin-top: ${(props: ButtonMainViewProps) => `${props.marginTop}px`};
+export const ButtonMainView = styled.View`
   left: 16px;
   right: 16px;
 `;
 
-interface InputViewProps {
-  marginTop: number;
-}
-export const InputView = styled.View<InputViewProps>`
-  margin-top: ${(props: InputViewProps) => `${props.marginTop}px`};
+export const ButtonLoginView = styled(ButtonMainView)`
+  margin-top: 170px;
+`;
+
+export const ButtonSubloginView = styled(ButtonMainView)`
+  margin-top: 91px;
+`;
+
+export const InputView = styled.View`
   width: 358px;
   left: 16px;
+`;
+
+export const LoginInputView = styled(InputView)`
+  margin-top: 32px;
 `;
 
 export const ForgetView = styled.View`
@@ -107,13 +112,13 @@ export const ForgetView = styled.View`
 `;
 
 export const ForgetText = styled.Text`
-  color: #ffffff;
+  color: ${COLORS.PrimaryFont};
   left: 16px;
   font-weight: 400;
   font-size: 13px;
   line-height: 18px;
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: #ffffff;
-  font-family: 'Roboto-Regular';
+  text-decoration-color: ${COLORS.PrimaryFont};
+  font-family: ${FONT.Regular};
 `;

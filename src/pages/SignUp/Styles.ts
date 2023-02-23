@@ -1,5 +1,8 @@
 import styled from 'styled-components/native';
-import {BackView} from '../Login/Styles';
+import {BackView, ButtonMainView, InputView} from '../Login/Styles';
+import {COLORS} from '../../assets/colors/Colors';
+import { FONT } from '../../assets/fonts/Fonts';
+
 export const BackImageView = styled(BackView)`
   margin-top: 6px;
   margin-left: 26px;
@@ -20,7 +23,7 @@ export const CheckTouchableOpacity = styled.TouchableOpacity`
 `;
 
 export const CheckText = styled.Text`
-  font-family: 'Roboto-Regular';
+  font-family: ${FONT.Regular};
   font-style: normal;
   font-weight: 400;
   font-size: 12.5px;
@@ -29,21 +32,28 @@ export const CheckText = styled.Text`
   width: 303px;
   height: 44px;
   text-decoration-style: solid;
-  text-decoration-color: #ec2027;
+  text-decoration-color: ${COLORS.SecondaryFont};
   align-items: center;
   justify-content: center;
 `;
 
 export const CheckText1 = styled(CheckText)`
-  color: #ffffff;
+  color: ${COLORS.PrimaryFont};
   margin-left: 10px;
   text-decoration-line: none;
 `;
 export const CheckText2 = styled(CheckText)`
-  color: #ec2027;
+  color: ${COLORS.SecondaryFont};
   text-decoration-line: underline;
 `;
 export const CheckText3 = styled(CheckText)`
-  color: #ec2027;
+  color: ${COLORS.SecondaryFont};
   text-decoration-line: underline;
+`;
+
+export const SignupInputView = styled(InputView)`
+  margin-top: 51px;
+`
+export const ButtonSignupView = styled(ButtonMainView)`
+  margin-top: 171px;
 `;

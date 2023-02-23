@@ -3,12 +3,12 @@ import {
   MyTextInput,
   MainView,
   InputTouchableWithoutFeedback,
-  MyTextInputError,
   OtpTextInput,
 } from './Styles';
 import EyeClose from '../../../assets/images/visibility_off.svg';
 import EyeOn from '../../../assets/images/visibility_on.svg';
 import {ErrorText} from '../../molecules/ErrorTextView';
+import {COLORS} from '../../../assets/colors/Colors';
 
 interface UserInput {
   inputPlaceholder: string;
@@ -43,9 +43,9 @@ export const Input: FC<UserInput> = props => {
   return (
     <>
       <MyTextInput
-        style={hasError && {borderColor: '#EC2027', borderWidth: 2}}
+        style={hasError && {borderColor: `${COLORS.SecondaryButtonBorder}`}}
         placeholder={props.inputPlaceholder}
-        placeholderTextColor={'rgba(51, 51, 51, 0.4)'}
+        placeholderTextColor={COLORS.PlaceholderText}
         keyboardType={props.keyboardValue}
         value={value}
         secureTextEntry={props.secureText}
@@ -73,9 +73,9 @@ export const InputWithImage: FC<UserInput> = props => {
     <>
       <MainView>
         <MyTextInput
-          style={hasError && {borderColor: '#EC2027', borderWidth: 2}}
+          style={hasError && {borderColor: `${COLORS.SecondaryButtonBorder}`}}
           placeholder={props.inputPlaceholder}
-          placeholderTextColor={'rgba(51, 51, 51, 0.4)'}
+          placeholderTextColor={COLORS.PlaceholderText}
           keyboardType={props.keyboardValue}
           value={value}
           secureTextEntry={props.secureText}
@@ -123,8 +123,8 @@ export const OtpInput: FC<OtpUserInput> = props => {
 
   return (
     <OtpTextInput
-      style={hasError && {borderColor: '#EC2027', borderWidth: 2}}
-      placeholderTextColor={'rgba(51, 51, 51, 0.4)'}
+      style={hasError && {borderColor: `${COLORS.SecondaryButtonBorder}`}}
+      placeholderTextColor={COLORS.PlaceholderText}
       keyboardType="numeric"
       maxLength={1}
       value={value}

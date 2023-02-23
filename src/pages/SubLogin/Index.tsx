@@ -4,21 +4,21 @@ import {Buttons} from '../../components/atoms/Buttons/Index';
 import {Input, InputWithImage} from '../../components/atoms/Inputs/Index';
 import {Formik, Field} from 'formik';
 import BackgroundImage from '../../assets/images/BackgroundImage.svg';
-import {ValidationSchemaSubLogin} from '../../components/Validation';
+import {ValidationSchemaSubLogin} from '../../utils/validation/Validation';
 import {
   Container,
   MyAwareScrollView,
   MySafeAreaView,
-  ButtonMainView,
-  InputView,
+  ButtonSubloginView,
   ForgetView,
   ForgetText,
   WelcomeTextLoginView,
+  LoginInputView,
 } from '../Login/Styles';
 import {MyTouchableWithoutFeedback} from '../../components/atoms/Buttons/Styles';
 import {Headers} from '../../components/molecules/Header';
 import {WelcomeText} from '../../components/molecules/WelcomView';
-import String from '../../components/Strings';
+import String from '../../assets/strings/Strings';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
   const OnPressBack = () => {
@@ -46,7 +46,7 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
             onSubmit={() => props.navigation.push('SignUp')}>
             {({isValid, handleSubmit, values, dirty}) => (
               <>
-                <InputView marginTop={32}>
+                <LoginInputView>
                   <Field
                     component={Input}
                     name="email"
@@ -65,31 +65,20 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
                     secureText={true}
                     EyeImage={true}
                   />
-                </InputView>
+                </LoginInputView>
                 <MyTouchableWithoutFeedback>
                   <ForgetView>
                     <ForgetText>Forgot your password?</ForgetText>
                   </ForgetView>
                 </MyTouchableWithoutFeedback>
-                <ButtonMainView marginTop={110}>
+                <ButtonSubloginView>
                   <Field
                     component={Buttons}
                     title={String.buttonTitleContinue}
                     onPress={handleSubmit}
                     disabled={!(isValid && dirty)}
-                    style={
-                      isValid && dirty
-                        ? {
-                            backgroundColor: 'red',
-                            borderColor: '#EC2027',
-                          }
-                        : {
-                            backgroundColor: '#7D7D7D',
-                            borderColor: '#7D7D7D',
-                          }
-                    }
                   />
-                </ButtonMainView>
+                </ButtonSubloginView>
               </>
             )}
           </Formik>

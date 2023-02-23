@@ -4,18 +4,16 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 import Back from '../../assets/images/BackIcon2.svg';
 import {Formik, Field} from 'formik';
 import {
-  ButtonMainView,
   Container,
-  InputView,
   MyAwareScrollView,
   MySafeAreaView,
 } from '../Login/Styles';
-import {BackImageView, WelcomeTextSignupView} from './Styles';
-import {ValidationSchemaSignUp} from '../../components/Validation';
+import {BackImageView, WelcomeTextSignupView, SignupInputView, ButtonSignupView} from './Styles';
+import {ValidationSchemaSignUp} from '../../utils/validation/Validation';
 import {InputWithImage} from '../../components/atoms/Inputs/Index';
 import {Buttons} from '../../components/atoms/Buttons/Index';
 import PrivacyPolicy from '../../components/molecules/PrivacyPolicyView';
-import String from '../../components/Strings';
+import String from '../../assets/strings/Strings';
 import {TouchableWithoutFeedback} from 'react-native';
 
 interface CheckProps {
@@ -75,15 +73,15 @@ const SignUp: FC<SignUpScreenProps> = props => {
               firstname: '',
             }}
             onSubmit={() => props.navigation.push('Login')}>
-            {({values, handleSubmit, isValid, dirty}) => (
+            {({values, handleSubmit, dirty, isValid}) => (
               <>
-                <InputView marginTop={51}>
+                <SignupInputView>
                   <Field
                     component={InputWithImage}
                     name="password"
                     inputPlaceholder="Enter Password*"
                     value={values.password}
-                    keyboardValue="email-address"
+                    keyboardValue="default"
                     secureText={secureText.secure ? false : true}
                     EyeImage={true}
                     onPress={handleSecurePassword}
@@ -94,7 +92,7 @@ const SignUp: FC<SignUpScreenProps> = props => {
                     name="confirmPassword"
                     inputPlaceholder="Confirm Password*"
                     value={values.confirmPassword}
-                    keyboardValue="email-address"
+                    keyboardValue="default"
                     secureText={secureText.secureConfirmPassword ? false : true}
                     EyeImage={true}
                     onPress={handleSecureConfirmPassword}
@@ -105,31 +103,20 @@ const SignUp: FC<SignUpScreenProps> = props => {
                     name="firstname"
                     inputPlaceholder="First Name (Optional)"
                     value={values.firstname}
-                    keyboardValue="email-address"
+                    keyboardValue="default"
                     secureText={false}
                     EyeImage={false}
                   />
-                </InputView>
+                </SignupInputView>
                 <PrivacyPolicy onPress={handleCheck} check={check.checkBtn} />
-                <ButtonMainView marginTop={220}>
+                <ButtonSignupView>
                   <Field
                     component={Buttons}
                     title={String.buttonTitleContinue}
                     onPress={handleSubmit}
                     disabled={!(isValid && dirty && check.checkBtn)}
-                    style={
-                      isValid && dirty && check.checkBtn
-                        ? {
-                            backgroundColor: 'red',
-                            borderColor: '#EC2027',
-                          }
-                        : {
-                            backgroundColor: '#7D7D7D',
-                            borderColor: '#7D7D7D',
-                          }
-                    }
                   />
-                </ButtonMainView>
+                </ButtonSignupView>
               </>
             )}
           </Formik>
