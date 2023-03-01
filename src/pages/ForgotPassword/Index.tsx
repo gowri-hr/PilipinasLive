@@ -45,7 +45,7 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
               email: '',
             }}
             onSubmit={() => props.navigation.push('Login')}>
-            {({values, dirty, handleSubmit}) => (
+            {({values, dirty, handleSubmit, isValid}) => (
               <>
                 <ForgetPassInputView>
                   <Field
@@ -61,7 +61,7 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
                 <ButtonForgetPassView>
                   <Buttons
                     title={String.buttonTitleContinue}
-                    disabled={!dirty}
+                    disabled={!(isValid && dirty)}
                     onPress={handleSubmit}
                   />
                 </ButtonForgetPassView>

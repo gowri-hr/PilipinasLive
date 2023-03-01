@@ -4,6 +4,8 @@ import {
   ButtonTitleText,
   InactiveButton,
   ActiveButton,
+  BorderButton,
+  ButtonBorderText,
 } from './Styles';
 
 interface Button {
@@ -25,6 +27,17 @@ export const Buttons: FC<Button> = props => {
           <ButtonTitleText>{props.title}</ButtonTitleText>
         </ActiveButton>
       )}
+    </MyTouchableWithoutFeedback>
+  );
+};
+export const OutlineButton: FC<Button> = props => {
+  return (
+    <MyTouchableWithoutFeedback
+      onPress={props.onPress}
+      disabled={props.disabled}>
+      <BorderButton>
+        <ButtonBorderText>{props.title}</ButtonBorderText>
+      </BorderButton>
     </MyTouchableWithoutFeedback>
   );
 };

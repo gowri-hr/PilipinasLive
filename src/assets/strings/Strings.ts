@@ -23,7 +23,15 @@ const String = new LocalizedStrings({
     SignInText: 'Sign In here',
     AlreadyText: 'Already have an Account?',
     ResendOtpText: 'Resend OTP in 57 secs',
-    OtpText: 'OTP was sent to'
+    OtpText: 'OTP was sent to',
+    PaymentText: 'Welcome to Pilipinas Live',
+    PaymentSubText: 'The Ultimate destination for Filipino Sports Fans',
+    PaymentDescriptionText: 'Enjoy LIVE games, catch-ups and an extensive library of exclusive video content from the Philippines Top sports leagues for only',
+    CostText: '₱ 199/ month',
+    StartYourTrailText: 'Start your 3-day free trial',
+    LiteVersionText: 'try the LITE version for free',
+    Privacypolicy: 'Privacy Policy',
+    Terms_condition: 'T & C'
   }
 });
 

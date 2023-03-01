@@ -22,6 +22,9 @@ export const ButtonTitleText = styled.Text`
   font-family: ${FONT.Medium};
   font-weight: 600;
 `;
+export const ButtonBorderText = styled(ButtonTitleText)`
+  color: ${COLORS.GreyText};
+`;
 
 export const InactiveButton = styled(ButtonView)`
   background-color: ${COLORS.PrimaryButtonBackground};
@@ -30,4 +33,8 @@ export const InactiveButton = styled(ButtonView)`
 export const ActiveButton = styled(ButtonView)`
   background-color: ${COLORS.SecondaryButtonBackground};
   border-color: ${COLORS.SecondaryButtonBorder};
+`;
+export const BorderButton = styled(ButtonView)`
+  background-color: none;
+  border-color: ${COLORS.WhiteButtonBorder};
 `;

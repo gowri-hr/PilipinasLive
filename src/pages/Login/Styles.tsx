@@ -19,7 +19,7 @@ export const MyAwareScrollView = styled(KeyboardAwareScrollView)`
 
 interface HeaderProps {
   justify?: boolean;
-  backBtn: boolean;
+  backBtn?: boolean;
 }
 export const HeaderView = styled.View`
   height: 65px;
@@ -42,12 +42,11 @@ export const HeaderViewWelcome = styled(HeaderView)`
   align-items: flex-start;
   background-color: ${COLORS.PrimaryBackground};
 `;
-
 export const LogoImageView = styled.View<HeaderProps>`
   margin-left: ${(props: HeaderProps) => (props.backBtn ? '93px' : '0px')};
 `;
 
-export const WelcomeTextLoginView = styled.TouchableOpacity`
+export const WelcomeTextLoginView = styled.View`
   margin-top: 34px;
 `;
 
