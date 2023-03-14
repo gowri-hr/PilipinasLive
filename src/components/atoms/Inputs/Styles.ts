@@ -1,31 +1,32 @@
 import styled from 'styled-components/native';
 import { COLORS } from '../../../assets/colors/Colors';
 import {FONT} from '../../../assets/fonts/Fonts';
+import { scaleUnit, verticalScale, moderateScale } from '../../../utils/scaling/ScalingUnits';
 
 export const MainView = styled.View`
   position: relative;
-  margin-top: 16px;
+  margin-top: ${scaleUnit(16)};
   flex-direction: row;
 `;
 
 export const InputTouchableWithoutFeedback = styled.TouchableOpacity`
-  height: 24px;
-  width: 26px;
-  right: 40px;
+  height: ${verticalScale(24)};
+  width: ${moderateScale(26)};
+  right: ${scaleUnit(40)};
   align-self: center;
 `;
 
 export const MyTextInput = styled.TextInput`
-  width: 358px;
-  height: 41px;
+  width: ${moderateScale(337)};
+  height: ${verticalScale(38)};
   background-color: ${COLORS.textInputBackground};
   border-width: 2px;
   border-color: ${COLORS.textInputBorder};
   border-radius: 3px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 16px;
-  padding-right: 40px;
+  padding-top: ${scaleUnit(12)};
+  padding-bottom: ${scaleUnit(12)};
+  padding-left: ${scaleUnit(16)};
+  padding-right: ${scaleUnit(40)};
   font-weight: 400;
   font-size: 14px;
   font-family: ${FONT.Regular};
@@ -35,29 +36,29 @@ export const MyTextInputError = styled.TextInput`
   border: 2px solid ${COLORS.SecondaryFont};
 `;
 export const ErrorTextMainView = styled.View`
-  width: 358px;
+  width: ${moderateScale(337)};
   flex-direction: row;
   align-items: center;
-  margin-top: 4px;
+  margin-top: ${scaleUnit(4)};
 `;
 export const ErrorDescriptionText = styled.Text`
   font-size: 12px;
   font-family: ${FONT.Medium};
   color: ${COLORS.SecondaryFont};
-  margin-top: 3px;
-  margin-bottom: 3px;
+  margin-top: ${scaleUnit(3)};
+  margin-bottom: ${scaleUnit(3)};
   text-align: left;
-  line-height: 22px;
-  margin-left: 7px;
+  line-height: ${scaleUnit(22)};
+  margin-left: ${scaleUnit(7)};
 `;
 
 export const OtpTextInput = styled.TextInput`
-  width: 41px;
-  height: 41px;
+  width: ${moderateScale(41)};
+  height: ${moderateScale(41)};
   background-color: ${COLORS.PrimaryFont};
   border-radius: 5px;
   font-family: ${FONT.Regular};
   font-size: 14px;
   color: ${COLORS.OtpText};
-  padding: 9.5px 15px 9.5px 15px;
+  padding: ${scaleUnit(9.5)} ${scaleUnit(15)} ${scaleUnit(9.5)} ${scaleUnit(15)}
 `;

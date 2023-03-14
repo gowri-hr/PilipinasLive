@@ -21,9 +21,11 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../assets/strings/Strings';
 
 const Login: FC<LoginScreenProps> = props => {
-  const handleContinue = () => {
+
+  const HandleContinueLogin = () => {
     props.navigation.push('SubLogin');
   };
+
   return (
     <MySafeAreaView>
       <Container>
@@ -42,7 +44,7 @@ const Login: FC<LoginScreenProps> = props => {
             initialValues={{
               email: '',
             }}
-            onSubmit={handleContinue}>
+            onSubmit={HandleContinueLogin}>
             {({values, dirty, isValid}) => (
               <>
                 <LoginInputView>
@@ -66,7 +68,7 @@ const Login: FC<LoginScreenProps> = props => {
                     component={Buttons}
                     title={String.buttonTitleContinue}
                     disabled={!(isValid && dirty)}
-                    onPress={handleContinue}
+                    onPress={HandleContinueLogin}
                   />
                 </ButtonLoginView>
               </>

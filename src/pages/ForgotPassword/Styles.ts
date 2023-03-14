@@ -1,19 +1,20 @@
 import styled from 'styled-components/native';
 import {ButtonMainView, InputView} from '../Login/Styles';
+import { scaleUnit } from '../../utils/scaling/ScalingUnits';
 
 export const LogoImage = styled.View`
-  margin-left: 16.24px;
-  margintop: 38.5px;
+  margin-left: ${scaleUnit(16.24)};
+  margintop: ${scaleUnit(38.5)};
 `;
 
 export const WelcomeTextForgotPasswordView = styled.TouchableOpacity`
-  margin-top: 32.64px;
+  margin-top: ${scaleUnit(32.64)};
 `;
 
 export const ForgetPassInputView = styled(InputView)`
-  margin-top: 51px;
+  margin-top: ${scaleUnit(51)};
 `;
 
 export const ButtonForgetPassView = styled(ButtonMainView)`
-  margin-top: 267px;
+  margin-top: ${scaleUnit(267)};
 `;

@@ -30,6 +30,14 @@ const SignUp: FC<SignUpScreenProps> = props => {
     secureConfirmPassword: true,
   });
 
+  const OnPressbackSignup = () => {
+    props.navigation.push('Login')
+  }
+
+  const OnSubmitSignup = () => {
+    props.navigation.push('Login')
+  }
+
   const handleCheck = () => {
     setCheck({checkBtn: !check.checkBtn});
   };
@@ -53,7 +61,7 @@ const SignUp: FC<SignUpScreenProps> = props => {
       <Container>
         <MyAwareScrollView>
           <TouchableWithoutFeedback
-            onPress={() => props.navigation.push('Login')}>
+            onPress={OnPressbackSignup}>
             <BackImageView>
               <Back />
             </BackImageView>
@@ -72,7 +80,7 @@ const SignUp: FC<SignUpScreenProps> = props => {
               confirmPassword: '',
               firstname: '',
             }}
-            onSubmit={() => props.navigation.push('Login')}>
+            onSubmit={OnSubmitSignup}>
             {({values, handleSubmit, dirty, isValid}) => (
               <>
                 <SignupInputView>

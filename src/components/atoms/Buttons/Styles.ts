@@ -1,12 +1,13 @@
 import styled from 'styled-components/native';
 import {COLORS} from '../../../assets/colors/Colors';
 import {FONT} from '../../../assets/fonts/Fonts';
+import {verticalScale, moderateScale } from '../../../utils/scaling/ScalingUnits';
 
 export const MyTouchableWithoutFeedback = styled.TouchableWithoutFeedback``;
 
 export const ButtonView = styled.View`
-  height: 41px;
-  width: 358px;
+  height: ${verticalScale(38)};
+  width: ${moderateScale(337)};
   background-color: ${COLORS.PrimaryButtonBackground};
   border-width: 1.24725px;
   border-color: ${COLORS.PrimaryButtonBorder};

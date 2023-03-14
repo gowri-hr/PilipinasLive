@@ -27,12 +27,20 @@ import {LogoImage} from '../ForgotPassword/Styles';
 import {TouchableWithoutFeedback} from 'react-native';
 
 const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
+
+  const OnPressbackVerifyotp = () => {
+    props.navigation.push('Login')
+  }
+  const OnSubmitVerifyotp = () => {
+    props.navigation.push('Login')
+  }
+
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
           <TouchableWithoutFeedback
-            onPress={() => props.navigation.push('Login')}>
+            onPress={OnPressbackVerifyotp}>
             <BackImageView>
               <Back />
             </BackImageView>
@@ -63,7 +71,7 @@ const VerifyOTP: FC<VerifyOTPScreenProps> = props => {
               fifthInput: '',
               sixthInput: '',
             }}
-            onSubmit={() => props.navigation.push('Login')}>
+            onSubmit={OnSubmitVerifyotp}>
             {({values, handleSubmit, dirty}) => (
               <>
                 <OtpInputView>

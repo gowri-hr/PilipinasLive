@@ -2,6 +2,8 @@ import styled from 'styled-components/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {COLORS} from '../../assets/colors/Colors';
 import {FONT} from '../../assets/fonts/Fonts';
+import { scaleUnit, verticalScale, moderateScale } from '../../utils/scaling/ScalingUnits';
+
 export const MySafeAreaView = styled.SafeAreaView`
   flex: 1;
 `;
@@ -22,32 +24,33 @@ interface HeaderProps {
   backBtn?: boolean;
 }
 export const HeaderView = styled.View`
-  height: 65px;
+  height: ${verticalScale(65)};
   background-color: ${COLORS.SecondaryBackground};
-  margin-left: 16px;
+  margin-left: ${scaleUnit(10)};
 `;
 export const HeaderViewLogin = styled(HeaderView)<HeaderProps>`
   justify-content: ${(props: HeaderProps) =>
     props.justify ? 'flex-start' : 'null'};
   align-items: center;
-  margin-left: ${(props: HeaderProps) => (props.backBtn ? '0px' : '16px')};
+  margin-left: ${(props: HeaderProps) => (props.backBtn ? scaleUnit(0) : scaleUnit(16))};
   flex-direction: row;
 `;
 export const HeaderViewSubLogin = styled(HeaderView)`
   align-items: center;
 `;
 export const HeaderViewWelcome = styled(HeaderView)`
-  height: 55px;
+  height: ${verticalScale(55)};
   flex-direction: column;
   align-items: flex-start;
   background-color: ${COLORS.PrimaryBackground};
+  margin-left: ${scaleUnit(16)};
 `;
 export const LogoImageView = styled.View<HeaderProps>`
-  margin-left: ${(props: HeaderProps) => (props.backBtn ? '93px' : '0px')};
+  margin-left: ${(props: HeaderProps) => (props.backBtn ? scaleUnit(93) : scaleUnit(0))};
 `;
 
 export const WelcomeTextLoginView = styled.View`
-  margin-top: 34px;
+  margin-top: ${scaleUnit(34)};
 `;
 
 interface TextProps {
@@ -58,64 +61,66 @@ export const TextView = styled.Text<TextProps>`
   color: ${COLORS.PrimaryFont};
 `;
 export const TextViewTitle = styled(TextView)`
-  height: 28px;
-  font-size: 24px
+  height: ${verticalScale(28)};
+  font-size: 24px;
   font-weight: 700;
-  line-height: 28px;
+  line-height: ${scaleUnit(28)};
   text-transform: ${(props: TextProps) =>
     props.textTransform ? 'uppercase' : 'none'};
 `;
 
 export const TextViewSubTitle = styled(TextView)`
-  height: 19px;
+  height: ${verticalScale(19)};
   font-size: 16px
   font-weight: 400;
-  line-height: 19px;
-  margin-top: 8px;
+  line-height: ${scaleUnit(19)};
+  margin-top: ${scaleUnit(8)};
   text-transform: ${(props: TextProps) =>
     props.textTransform ? 'uppercase' : 'none'};
 `;
 
 export const BackView = styled.View`
-  width: 50px;
-  height: 65px;
+  width: ${moderateScale(50)};
+  height: ${verticalScale(65)};
   justify-content: center;
   align-items: flex-start;
-  margin-left: 22.68px;
+  margin-left: ${scaleUnit(22.68)};
 `;
 
 export const ButtonMainView = styled.View`
-  left: 16px;
-  right: 16px;
+  left: ${scaleUnit(16)};
+  right: ${scaleUnit(16)};
 `;
 
 export const ButtonLoginView = styled(ButtonMainView)`
-  margin-top: 170px;
+  margin-top: ${scaleUnit(170)};
+  bottom: ${scaleUnit(42)};
 `;
 
 export const ButtonSubloginView = styled(ButtonMainView)`
-  margin-top: 91px;
+  margin-top: ${scaleUnit(110)};
+  bottom: ${scaleUnit(42)};
 `;
 
 export const InputView = styled.View`
-  width: 358px;
-  left: 16px;
+  width: ${moderateScale(258)};
+  left: ${scaleUnit(16)};
 `;
 
 export const LoginInputView = styled(InputView)`
-  margin-top: 32px;
+  margin-top: ${scaleUnit(32)};
 `;
 
 export const ForgetView = styled.View`
-  margin-top: 16px;
+  margin-top: ${scaleUnit(16)};
 `;
 
 export const ForgetText = styled.Text`
   color: ${COLORS.PrimaryFont};
-  left: 16px;
+  left: ${scaleUnit(16)};
   font-weight: 400;
   font-size: 13px;
-  line-height: 18px;
+  line-height: ${scaleUnit(18)};
   text-decoration-line: underline;
   text-decoration-style: solid;
   text-decoration-color: ${COLORS.PrimaryFont};

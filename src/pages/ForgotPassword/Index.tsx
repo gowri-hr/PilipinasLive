@@ -19,12 +19,19 @@ import {
 } from './Styles';
 
 const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
+
+  const OnPressbackForgot = () => {
+    props.navigation.push('Login')
+  }
+  const OnSubmitForgot = () => {
+    props.navigation.push('Login')
+  }
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
           <TouchableWithoutFeedback
-            onPress={() => props.navigation.push('Login')}>
+            onPress={OnPressbackForgot}>
             <BackImageView>
               <Back />
             </BackImageView>
@@ -44,7 +51,7 @@ const ForgotPassword: FC<ForgotPasswordScreenProps> = props => {
             initialValues={{
               email: '',
             }}
-            onSubmit={() => props.navigation.push('Login')}>
+            onSubmit={OnSubmitForgot}>
             {({values, dirty, handleSubmit, isValid}) => (
               <>
                 <ForgetPassInputView>

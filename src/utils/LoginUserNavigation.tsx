@@ -31,7 +31,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const LoginUserStack: FC<{}> = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="Payment">
+      <RootStack.Navigator initialRouteName="SignUp">
         <RootStack.Screen
           options={{
             headerShown: false,

@@ -2,6 +2,7 @@ import React, {FC} from 'react';
 import {Container, MyAwareScrollView, MySafeAreaView} from '../Login/Styles';
 import {Headers} from '../../components/molecules/Header';
 import Poster1 from '../../assets/images/PilipinasLive_Poster1.svg';
+import { PaymentScreenProps } from '../../utils/LoginUserNavigation';
 import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../assets/strings/Strings';
 import {
@@ -17,7 +18,20 @@ import {
 } from './Styles';
 import {Buttons, OutlineButton} from '../../components/atoms/Buttons/Index';
 
-const Payment: FC<{}> = () => {
+const Payment: FC<PaymentScreenProps> = props => {
+
+  const OnPressbackWelcomePayment = () => {
+    props.navigation.push('Login')
+  }
+
+  const handleFreeTrial = () => {
+    props.navigation.push('Login')
+  }
+
+  const handleFreeVersion = () => {
+    props.navigation.push('Login')
+  }
+
   return (
     <MySafeAreaView>
       <Container>
@@ -25,7 +39,7 @@ const Payment: FC<{}> = () => {
           <Headers
             justify={false}
             backBtn={true}
-            onPress={() => console.log('hasgdh')}
+            onPress={OnPressbackWelcomePayment}
           />
           <Poster1 />
           <WelcomeTextPaymentView>
@@ -39,12 +53,12 @@ const Payment: FC<{}> = () => {
           <ButtonPaymentView>
             <Buttons
               title={String.StartYourTrailText}
-              onPress={() => console.log('sdfdf')}
+              onPress={handleFreeTrial}
               disabled={false}
             />
             <OutlineButton
               title={String.LiteVersionText}
-              onPress={() => console.log('sdfdf')}
+              onPress={handleFreeVersion}
               disabled={false}
             />
           </ButtonPaymentView>

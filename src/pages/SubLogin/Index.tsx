@@ -21,14 +21,18 @@ import {WelcomeText} from '../../components/molecules/WelcomView';
 import String from '../../assets/strings/Strings';
 
 const SubLogin: FC<SubLoginScreenProps> = props => {
-  const OnPressBack = () => {
+
+  const OnPressBackSublogin = () => {
+    props.navigation.push('Login');
+  };
+  const OnSubmitSublogin = () => {
     props.navigation.push('Login');
   };
   return (
     <MySafeAreaView>
       <Container>
         <MyAwareScrollView>
-          <Headers justify={false} backBtn={true} onPress={OnPressBack} />
+          <Headers justify={false} backBtn={true} onPress={OnPressBackSublogin} />
           <BackgroundImage />
           <WelcomeTextLoginView>
             <WelcomeText
@@ -43,7 +47,7 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
               email: '',
               password: '',
             }}
-            onSubmit={() => props.navigation.push('SignUp')}>
+            onSubmit={OnSubmitSublogin}>
             {({isValid, handleSubmit, values, dirty}) => (
               <>
                 <LoginInputView>
