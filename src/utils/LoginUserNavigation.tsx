@@ -8,6 +8,7 @@ import SubLogin from '../pages/SubLogin/Index';
 import ForgotPassword from '../pages/ForgotPassword/Index';
 import VerifyOTP from '../pages/VerifyOTP/Index';
 import Payment from '../pages/WelcomePayment/Index';
+import PayDetails from '../pages/PremiumDescription/Index';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   ForgotPassword: undefined;
   VerifyOTP: undefined;
   Payment: undefined;
+  PayDetails: undefined;
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
 export type LoginScreenProps = StackScreenProps<RootStackParamList, "Login">
@@ -24,6 +26,7 @@ export type SignUpScreenProps = StackScreenProps<RootStackParamList, "SignUp">
 export type ForgotPasswordScreenProps = StackScreenProps<RootStackParamList, "ForgotPassword">
 export type VerifyOTPScreenProps = StackScreenProps<RootStackParamList, "VerifyOTP">
 export type PaymentScreenProps = StackScreenProps<RootStackParamList, "Payment">
+export type PayDetailsScreenProps = StackScreenProps<RootStackParamList, "PayDetails">
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -31,7 +34,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const LoginUserStack: FC<{}> = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="SignUp">
+      <RootStack.Navigator initialRouteName="PayDetails">
         <RootStack.Screen
           options={{
             headerShown: false,
@@ -73,6 +76,13 @@ const LoginUserStack: FC<{}> = () => {
           }}
           name="Payment"
           component={Payment}
+        />
+        <RootStack.Screen
+          options={{
+            headerShown: false,
+          }}
+          name="PayDetails"
+          component={PayDetails}
         />
       </RootStack.Navigator>
     </NavigationContainer>

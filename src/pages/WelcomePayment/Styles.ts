@@ -53,7 +53,7 @@ export const CostText = styled.Text`
 `;
 
 export const ButtonPaymentView = styled(ButtonMainView)`
-  margin-top: ${scaleUnit(66)};
+  margin-top: ${scaleUnit(50)};
   height: ${verticalScale(86)};
   width: ${moderateScale(320)};
   justify-content: space-between;

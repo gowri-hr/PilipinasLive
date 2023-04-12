@@ -72,7 +72,7 @@ const SubLogin: FC<SubLoginScreenProps> = props => {
                 </LoginInputView>
                 <MyTouchableWithoutFeedback>
                   <ForgetView>
-                    <ForgetText>Forgot your password?</ForgetText>
+                    <ForgetText>{String.forgotFirstText}</ForgetText>
                   </ForgetView>
                 </MyTouchableWithoutFeedback>
                 <ButtonSubloginView>
