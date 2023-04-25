@@ -31,7 +31,15 @@ const String = new LocalizedStrings({
     StartYourTrailText: 'Start your 3-day free trial',
     LiteVersionText: 'try the LITE version for free',
     Privacypolicy: 'Privacy Policy',
-    Terms_condition: 'T & C'
+    Terms_condition: 'T & C',
+    PayDetailsSubscribe: 'Subscribe to the plan below to access your',
+    PayDetailsTrail: '3-DAY FREE TRIAL',
+    Premium: 'Premium',
+    PremiumDetails: 'Get in the game for only ₱199 a month and watch your favourite sports and leagues in action anytime, anywhere',
+    CancelText: 'You can cancel anytime within the trial period if you wish to discontinue your subscription',
+    FeatureTitle1: 'Live games and Catch-ups',
+    FeatureDetail1: 'Full access to Live and Upcoming games with all the Highlights, Replays and Trending News',
+    TaptoPay: 'tap to pay',
   }
 });
 

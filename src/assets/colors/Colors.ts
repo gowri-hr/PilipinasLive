@@ -1,4 +1,5 @@
 export const COLORS = {
+  Black: '#111111',
   PrimaryBackground: '#111111',
   SecondaryBackground: '#030406',
   PrimaryFont: '#FFFFFF',
@@ -14,5 +15,8 @@ export const COLORS = {
   InputFont: '#111111',
   OtpText: '#333333',
   PlaceholderText: 'rgba(51, 51, 51, 0.4)',
-  GreyText: '#BEBEBE'
+  GreyText: '#BEBEBE',
+  DarkGrey: '#2C2C2C',
+  LightBlack: 'rgba(255, 255, 255, 0.77)',
+  Gray82: '#D1D1D1',
 };
