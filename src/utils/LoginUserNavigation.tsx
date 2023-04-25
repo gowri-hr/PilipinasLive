@@ -9,8 +9,6 @@ import ForgotPassword from '../pages/ForgotPassword/Index';
 import VerifyOTP from '../pages/VerifyOTP/Index';
 import Payment from '../pages/WelcomePayment/Index';
 import PayDetails from '../pages/PremiumDescription/Index';
-import ColdStart from '../pages/Personalize/ColdStart/Index';
-import ChooseSports from '../pages/Personalize/ChooseSports/Index';
 
 export type RootStackParamList = {
   Login: undefined;
@@ -20,8 +18,6 @@ export type RootStackParamList = {
   VerifyOTP: undefined;
   Payment: undefined;
   PayDetails: undefined;
-  ColdStart: undefined;
-  ChooseSports: undefined;
   // Feed: { sort: 'latest' | 'top' } | undefined;
 };
 export type LoginScreenProps = StackScreenProps<RootStackParamList, "Login">
@@ -31,8 +27,6 @@ export type ForgotPasswordScreenProps = StackScreenProps<RootStackParamList, "Fo
 export type VerifyOTPScreenProps = StackScreenProps<RootStackParamList, "VerifyOTP">
 export type PaymentScreenProps = StackScreenProps<RootStackParamList, "Payment">
 export type PayDetailsScreenProps = StackScreenProps<RootStackParamList, "PayDetails">
-export type ColdStartScreenProps = StackScreenProps<RootStackParamList, "ColdStart">
-export type ChooseSportsScreenProps = StackScreenProps<RootStackParamList, "ChooseSports">
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -40,7 +34,7 @@ const RootStack = createStackNavigator<RootStackParamList>();
 const LoginUserStack: FC<{}> = () => {
   return (
     <NavigationContainer>
-      <RootStack.Navigator initialRouteName="ColdStart">
+      <RootStack.Navigator initialRouteName="PayDetails">
         <RootStack.Screen
           options={{
             headerShown: false,
@@ -89,20 +83,6 @@ const LoginUserStack: FC<{}> = () => {
           }}
           name="PayDetails"
           component={PayDetails}
-        />
-        <RootStack.Screen
-          options={{
-            headerShown: false,
-          }}
-          name="ColdStart"
-          component={ColdStart}
-        />
-        <RootStack.Screen
-          options={{
-            headerShown: false,
-          }}
-          name="ChooseSports"
-          component={ChooseSports}
         />
       </RootStack.Navigator>
     </NavigationContainer>
