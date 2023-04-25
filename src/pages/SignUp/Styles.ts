@@ -39,7 +39,7 @@ export const CheckText = styled.Text`
 `;
 
 export const CheckText1 = styled(CheckText)`
-  color: ${COLORS.PrimaryFont};
+  color: ${COLORS.White};
   margin-left: ${scaleUnit(10)};
   text-decoration-line: none;
 `;

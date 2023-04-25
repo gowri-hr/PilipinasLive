@@ -2,7 +2,7 @@ export const COLORS = {
   Black: '#111111',
   PrimaryBackground: '#111111',
   SecondaryBackground: '#030406',
-  PrimaryFont: '#FFFFFF',
+  White: '#FFFFFF',
   SecondaryFont: '#EC2027',
   OtpFont: '#B3B3B3',
   PrimaryButtonBackground: '#7D7D7D',
@@ -19,4 +19,7 @@ export const COLORS = {
   DarkGrey: '#2C2C2C',
   LightBlack: 'rgba(255, 255, 255, 0.77)',
   Gray82: '#D1D1D1',
+  Gray64: '#A3A3A3',
+  NightRider: '#2C2C2C',
+  
 };
