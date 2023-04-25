@@ -40,6 +40,20 @@ const String = new LocalizedStrings({
     FeatureTitle1: 'Live games and Catch-ups',
     FeatureDetail1: 'Full access to Live and Upcoming games with all the Highlights, Replays and Trending News',
     TaptoPay: 'tap to pay',
+    ColdStart: 'THAT’S THE SPIRIT',
+    ColdStart2: 'You’re all set for Jam-Packed Sports Action',
+    Skip: 'SKIP',
+    SportSelect: 'Please select your choice of Sport to continue ',
+    Select1: 'Select Atleast 1',
+    badminton: 'Badminton',
+    hockey: 'Hockey',
+    volleyball: 'VolleyBall',
+    baseball: 'Baseball',
+    basketball: 'Basketball',
+    tennis: 'Tennis',
+    boxing: 'Boxing',
+    football: 'Football',
+    golf: 'golf',
   }
 });
 
