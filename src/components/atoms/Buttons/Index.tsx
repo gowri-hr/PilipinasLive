@@ -6,6 +6,9 @@ import {
   ActiveButton,
   BorderButton,
   ButtonBorderText,
+  OptionsButtonView,
+  OptionTitle,
+  OptionsSelectButtonView
 } from './Styles';
 
 interface Button {
@@ -41,3 +44,22 @@ export const OutlineButton: FC<Button> = props => {
     </MyTouchableWithoutFeedback>
   );
 };
+
+export const OptionButtons: FC<Button> = props => {
+  return (
+    <MyTouchableWithoutFeedback
+      onPress={props.onPress}
+      disabled={props.disabled}>
+      {props.disabled ? (
+        <OptionsSelectButtonView>
+          <OptionTitle>{props.title}</OptionTitle>
+        </OptionsSelectButtonView>
+      ) : (
+        <OptionsButtonView>
+          <OptionTitle>{props.title}</OptionTitle>
+        </OptionsButtonView>
+      )}
+    </MyTouchableWithoutFeedback>
+  );
+};
+

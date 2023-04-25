@@ -10,7 +10,6 @@ import {ButtonPaymentView, PolicyText, PolicyView} from '../WelcomePayment/Style
 import {
   CancelText,
   FeatureContainer,
-  FeatureView,
   PayDetailsPremiumText,
   PayDetailsPremiumView,
   PayDetailsSubscribeView,

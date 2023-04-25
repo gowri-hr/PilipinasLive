@@ -58,7 +58,7 @@ interface TextProps {
 }
 export const TextView = styled.Text<TextProps>`
   font-family: ${FONT.Regular};
-  color: ${COLORS.PrimaryFont};
+  color: ${COLORS.White};
 `;
 export const TextViewTitle = styled(TextView)`
   height: ${verticalScale(28)};
@@ -116,13 +116,13 @@ export const ForgetView = styled.View`
 `;
 
 export const ForgetText = styled.Text`
-  color: ${COLORS.PrimaryFont};
+  color: ${COLORS.White};
   left: ${scaleUnit(16)};
   font-weight: 400;
   font-size: 13px;
   line-height: ${scaleUnit(18)};
   text-decoration-line: underline;
   text-decoration-style: solid;
-  text-decoration-color: ${COLORS.PrimaryFont};
+  text-decoration-color: ${COLORS.White};
   font-family: ${FONT.Regular};
 `;
